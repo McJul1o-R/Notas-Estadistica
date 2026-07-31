@@ -109,6 +109,51 @@ Para finalizar esta parte, dejamos el siguiente ejercicio
 
 ![Playeras deportivas](imagenes/playeras.png)
 
+### Clasificación por el nivel de medición
+
+En esta clasificación, las características de los datos aumentan conforme vamos 
+definiendo los niveles. 
+
+1. **Nominal:** Los datos representan nombres y etiquetas, pero 
+no tienen un orden.
+
+2. **Ordinal:** Los datos representan etiquetan con orden, pero la resta de datos carece de sentido.
+
+3. **Intervalo:** Los datos tienen orden y la resta tiene significado, pero no tienen valor inicial. 
+Esto es, el cero no representa la falta del atributo.
+
+4. **Razón:** Los datos tienen orden, la resta tiene significado y el cero si represetan ausencia del atributo.
+
+Algunos ejemplos quedan clasificados como sigue:
+
+- **Nominal**
+
+  -Color de ojos.
+  -Lugar de nacimiento.
+  
+- **Ordinal**
+
+  -Nivel escolar (primari, secundaria, preparatoria)
+  -Intensidad de color (leve, normal,fuerte)
+  -Tallas de ropa (chica, mediana, grande)
+  
+- **Intervalo**
+
+ -Temperatura de una ciudad.
+ -Tiempo de elaboración de un proyecto.
+ -Calificaciones exámenes.
+ 
+- **Razón**
+
+  -Velocidad de un auto.
+  -Altura de un edificio.
+  -Ventas de una empresa.
+  
+Finalizamos esta sección con un ejercicio
+
+*Realiza un mapa conceptual sobre los tipos de datos y sus clasificaciones*
+
+*Agrega ejemplos de cada uno de los tipos de datos que no aparezcan en estas notas*
 
 ## Distribuciones de probabilidad
 
