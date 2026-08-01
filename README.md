@@ -153,7 +153,55 @@ Finalizamos esta sección con un ejercicio
 
 *Realiza un mapa conceptual sobre los tipos de datos y sus clasificaciones*
 
-*Agrega ejemplos de cada uno de los tipos de datos que no aparezcan en estas notas*
+*Agrega ejemplos de cada uno de los tipos de datos que no aparezcan en estas notas.*
+
+### Datos cualitativos
+
+Las etiquetas o datos cualitativos son datos que se necesitan contar para tener información medible. 
+Por lo que, para analizar este tipo de datos, primero aprenderemos a contar. 
+
+Consideremos la siguiente base de datos de refrescos de preferencia.
+
+```{r}
+refrescos = c("Coke_Classic", "Pepsi", "Sprite", "Dr.Pepper")
+set.seed(1548)
+datos = sample(refrescos, 30, replace = T)
+```
+
+Algunas preguntas que nos pueden hacer sobre esta base de datos son
+
+*¿Cuál es el refresco que más consumen?*
+
+*¿Cuál es el refresco que menos consumen?*
+
+*¿Podemos calcular una gráfica que resuma la información?*
+
+Las primeras dos respuestas salen con el código
+
+```{r}
+resumen = table(datos)
+resumen
+```
+
+En el ejemplo anterior, vemos que Pepsi es el refresco que más se consume con 10 repeticiones.
+El refresco que menos se consume es Dr. Pepper con 5 repeticiones.
+
+Para la tercera pregunta, si guardamos la tabla resumen (table()) en un objeto llamado resumen y 
+a este nuevo objeto le aplicamos 
+
+```{r}
+barplot(resumen)
+```
+
+obtenemos una gráfica de barras con la correspondiente
+información.
+
+![Gráfico de barras](imagenes/barplot-refrescos.png)
+
+Para más detalles de este ejemplo, consulta el código completo:
+
+[Base de datos de refrescos](scripts/refrescos.R)
+
 
 ## Distribuciones de probabilidad
 
