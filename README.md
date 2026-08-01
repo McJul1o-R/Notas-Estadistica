@@ -202,6 +202,26 @@ Para más detalles de este ejemplo, consulta el código completo:
 
 [Base de datos de refrescos](scripts/refrescos.R)
 
+**NOTA:** Los siguientes ejemplos que mostramos dependerán del código anterior.
+Por lo que es importante que corran los scripts en el orden cada vez que inicien sesión
+y darle continuidad a estas notas.
+
+Continuando con las mediciones, estas dependerán de las repeticones que ya realizamos con el código 
+**table()**. Formalmente, a estas repeticiones se les conoce como **frecuencias** y el nombre de los refrescos son 
+llamadas **Clases**.
+
+Otra medicion que realizaremos es la **frecuencia relativa**, la cual se calcula como
+
+$$
+\text{F.R.} = \frac{frecuencia}{n},
+$$
+
+donde $n$ sigue representando nuestro tamaño de muestra. En R, calculamos esto con el código
+
+```{r}
+n = length(datos)
+```
+
 
 ## Distribuciones de probabilidad
 
