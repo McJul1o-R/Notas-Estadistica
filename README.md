@@ -200,13 +200,13 @@ información.
 
 Para más detalles de este ejemplo, consulta el código completo:
 
-[Base de datos de refrescos](scripts/refrescos.R)
+[Base de datos de refrescos](scripts/01_refrescos.R)
 
 **NOTA:** Los siguientes ejemplos que mostramos dependerán del código anterior.
 Por lo que es importante que corran los scripts en el orden cada vez que inicien sesión
 y darle continuidad a estas notas.
 
-Continuando con las mediciones, estas dependerán de las repeticones que ya realizamos con el código 
+Continuando con las mediciones, estas dependerán de las repeticiones que ya realizamos con el código 
 **table()**. Formalmente, a estas repeticiones se les conoce como **frecuencias** y el nombre de los refrescos son 
 llamadas **Clases**.
 
@@ -222,7 +222,28 @@ donde $n$ sigue representando nuestro tamaño de muestra. En R, calculamos esto 
 n = length(datos)
 ```
 
+Por lo que las frecuencias relativas se calculan en el siguiente script:
 
+[Base de datos de refrescos](scripts/02_frecuencia-relativa.R)
+
+Para que la información se guarde en un mismo objeto, convertiremos nuestra tabla en un **data.frame()**
+
+[Tabla creada con un **data.drame()**](scripts/03_data-frame.R)
+
+El resultado se ve de la siguiente forma:
+
+![Resultados de las frecuencias y frecuencias relativa](imagenes/data.frame1.png)
+
+Una característica importante de la frecuencia relativa es que la suma total da 1.
+
+Otra medición que podemos realizar es la frecuencia porcentual, la cual se calcula como
+
+$$
+FP = 100*FR,
+$$
+
+en otras palabras, la frecuencia relativa representa una probabilidad. Para convertirla en porcentaje basta con
+multiplicarla por 100. 
 ## Distribuciones de probabilidad
 
 ## Funciones de Momentos y Verosimilitud
