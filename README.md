@@ -213,7 +213,7 @@ llamadas **Clases**.
 Otra medicion que realizaremos es la **frecuencia relativa**, la cual se calcula como
 
 $$
-\text{F.R.} = \frac{frecuencia}{n},
+\text{FR} = \frac{\text{frecuencia}}{n},
 $$
 
 donde $n$ sigue representando nuestro tamaño de muestra. En R, calculamos esto con el código
@@ -224,7 +224,7 @@ n = length(datos)
 
 Por lo que las frecuencias relativas se calculan en el siguiente script:
 
-[Base de datos de refrescos](scripts/02_frecuencia-relativa.R)
+[Frecuencia relativa asociada](scripts/02_frecuencia-relativa.R)
 
 Para que la información se guarde en un mismo objeto, convertiremos nuestra tabla en un **data.frame()**
 
@@ -232,9 +232,9 @@ Para que la información se guarde en un mismo objeto, convertiremos nuestra tab
 
 El resultado se ve de la siguiente forma:
 
-![Resultados de las frecuencias y frecuencias relativa](imagenes/data.frame1.png)
+![Resultados de las frecuencias y frecuencias relativa](imagenes/data-frame1.png)
 
-Una característica importante de la frecuencia relativa es que la suma total da 1.
+Una característica importante de la frecuencia relativa es que la suma total es 1.
 
 Otra medición que podemos realizar es la frecuencia porcentual, la cual se calcula como
 
@@ -243,7 +243,24 @@ FP = 100*FR,
 $$
 
 en otras palabras, la frecuencia relativa representa una probabilidad. Para convertirla en porcentaje basta con
-multiplicarla por 100. 
+multiplicarla por 100.
+
+El gráfico relacionado con este estadístico es la **gráfica circular** o de **pastel**. 
+
+Retomando la base de datos original y la primera tabla, obtenemos el siguiente resultado:
+
+![Gráfica de pastel](imagenes/pie1.png)
+
+Estéticamente, podemos agregar los respectivos porcentajes, redondeando a dos decimales. Por lo que el resultado queda como sigue:
+
+[Script para la frecuencua porcentual y gráfica de pastel](scripts/fporcentual_´pie.R)
+
+![Gráfica de pastel con etiquetas más elaboradas](imagenes/pie2.png)
+
+Una característica importante de la frecuencia porcentual es que la suma total es 100.
+
+
+
 ## Distribuciones de probabilidad
 
 ## Funciones de Momentos y Verosimilitud
