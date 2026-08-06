@@ -1,5 +1,7 @@
 # CURSO DE ESTADÍSTICA
 
+## Introducción
+
 En este repositorio encontraremos ejercicios y ejemplos que se 
 realizarán por Rstudio. Para instalar de manera adecuada estas herramientas,
 seguiremos las siguientes ligas en ese orden:
@@ -24,6 +26,8 @@ sus proyectos y tareas. Realizar esto queda fuera de este curso, por lo que invi
 a los lectores interesados investigar más a fondo sobre esto.
 
 ## Estadística descriptiva
+
+### Conceptos básicos
 
 Empecemos con los conceptos básicos que utilizaremos durante este curso.
 
@@ -259,7 +263,117 @@ Estéticamente, podemos agregar los respectivos porcentajes, redondeando a dos d
 
 Una característica importante de la frecuencia porcentual es que la suma total es 100.
 
+### Datos cuantitativos
 
+Recordemos que los datos numéricos tienen dos tipos de clasificación, discretos y continuos. 
+En cualquiera de los casos, los datos se pueden analizar de manera individual o grupal. 
+
+Primero nos enfocaremos a los **datos no agrupados**. Esto es, una lista de datos numéricos, por ejemplo
+las edades de un grupo de trabajo:
+
+```{r}
+set.seed(369)
+edades = sample(20:38, 200, replace = T)
+```
+
+La primera diferencia entre las etiquetas es que no podemos realizar conteo de repeticiones ya que los datos no se reducen significativamente.
+Sin embargo, al tener números podemos realizar mediciones de manera directa, como por ejemplo el **promedio** o **media aritmética** cuya fórmula es:
+
+$$
+\overline{x} = \frac{\sum x_i}{n} = \frac{x_1 + x_2 + \ldots + x_n}{n}, 
+$$
+
+donde $n$ es el tamaño de la muestra. En R, calculamos el promedio con **mean()**
+
+En el ejemplo, el promedio de las edades de los trabajadores es 
+
+```{r}
+mean(edades)
+```
+
+cuyo resultados es $28.96$. 
+
+Otro estadístico conocido es la **mediana** $Q_2$, la cual representa que el 50% de los datos son menores a $Q_2$ y el otro 50% son mayores.
+Por ejemplo,
+
+```{r}
+median(edades)
+```
+
+dice que el 50% de los trabajadores tienen edades menores o iguales a 29. Mientras que el otro 50% son mayores a 29 años.
+
+La interpretación de la mediana se puede generalizar a cualquier porcentaje. A este estadístico se le conoce como **percentil** $P_m$, donde
+$m$ representa el porcentaje de datos menores o iguales a $P_m$.
+
+Si $i$ representa la posición de los datos ordenados de menor a mayor, entonces 
+
+$$
+i = \left\lceil  \frac{m \cdot n}{100} \right\rceil,
+$$
+
+donde $\lceil \ \rceil$ representa un redondeo hacia arriba cuando sea necesario. Por lo que tenemos dos opciones para el valor del percentil:
+
+ - Si $i$ es entero, sin necesidad de redondear, entonces
+ 
+ $$
+  P_m = \frac{x_i + x_{i+1}}{2}
+ $$
+ 
+ - Si $i$ se obtiene al redondear hacia arriba, entonces
+ 
+ $$
+  P_m = x_i
+ $$
+
+Por ejemplo, si queremos calcular el percentil 35 de las edades, esto implica que el 35% de las edades son menores o iguales a $P_{35}$. 
+En R lo calculamos como
+
+```{r}
+m = 35
+quantile(x = edades, probs = m/100, type = 2)
+```
+Por lo que el 35% de los trabajadores tienen una edad menor o igual a $26$.
+
+Los percentiles más usados son el $P_{25}$, $P_{50}$ y $P_{75}$ y reciben el nombre de **cuartiles** ya que dividen a los datos en 4 partes iguales. 
+
+ - El **primer cuartil** se denota por $Q_1 = P_{25}$.
+ - El **segundo cuartil** coincide con la mediana y es $Q_2 = P_{50}$.
+ - El **tercer cuartil** es $Q_3 = P_{75}$.
+
+Estos datos se utilizan para realizar un diagrama de caja que sirve para representar la distribución de los datos y su respectiva posición.
+
+Para el ejemplo de las edades de los trabajadores, su diagrama de caja se calcula con el código
+
+```{r}
+boxplot(edades)
+```
+
+Cuyo resultado es
+
+![Diagrama de caja de las edades de los trabajadores](imagenes/dcaja.png)
+
+Para finalizar, recordemos las medidas de dispersión, como la varianza y la desviación estándar. Sus fórmulas son
+
+$$
+\text{varianza} = s^2 = \frac{\sum (x_i - \overline{x})^2}{n-1}
+$$
+
+$$
+\text{desviación estándar} = s = \sqrt{\text{varianza}}
+$$
+
+Como los nombres lo indican, estos estadísticos miden la variación o dispersión de los datos.
+Por ejemplo, las edades tienen una varianza de $30.04864$ y se calcula como
+
+```{r}
+var(edades)
+```
+
+Por otro lado, la desviación estándar es $5.481664$ y se calcula como
+
+```{r}
+sd(edades)
+```
 
 ## Distribuciones de probabilidad
 

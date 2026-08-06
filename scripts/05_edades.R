@@ -1,0 +1,10 @@
+set.seed(369)
+edades = sample(20:38, 200, replace = T)
+n = length(edades)
+mean(edades)
+median(edades)
+m = 35
+quantile(x = edades, probs = m/100, type = 2)
+boxplot(edades)
+var(edades)
+sd(edades)
