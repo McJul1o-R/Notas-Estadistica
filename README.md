@@ -375,6 +375,37 @@ Por otro lado, la desviación estándar es $5.481664$ y se calcula como
 sd(edades)
 ```
 
+En otras palabras, las edades tienen una variación aproximada de $5.48$ años. 
+
+En conclusión, existen diferentes estadísticos relacionados con los datos cuantitativos, las **medidas centrales** como la media y la mediana, 
+las **medidas de posición** como los percentiles, y las **medidas de dispersión** como la varianza y la desviación estándar.
+
+Por separado, estos estadísticos pueden mal interpretar los datos, sin embargo, analizando juntos podemos llegar a un resumen de los datos con conclusiones más precisas. 
+Existen estadísticos más avanzado que agregaremos conforme pase el tiempo. 
+
+### Aplicaciones
+
+Finalizamos esta sección agregando una aplicación relacionada con una base de datos importante, la bolsa de valores.
+Las acciones de empresas son instrumenos de renta variable donde podemos invertir. 
+Si queremos elegir las acciones correctas, tenemos que realizar un análisis de los precios. 
+
+Para esto, utilizaremos la API de yahoo finances que tenemos disponible en Rstudio.
+Si aún no tienen instalado el paquete, tienen que ejecutar en la consola el siguiente código
+
+```{r}
+install.packages("quantmod")
+```
+
+Cuando iniciemos un proyecto nuevo, donde utilizaremos la API, tenemos que ejecutar la libreria correspondiente
+
+```{r}
+library(quantmod)
+```
+
+Continuamos con los procesos de extracción de precios aquí
+
+[Acciones de la bolsa de valores](Rmarkdowns/Acciones.html)
+
 ## Distribuciones de probabilidad
 
 ## Funciones de Momentos y Verosimilitud

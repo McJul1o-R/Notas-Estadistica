@@ -1,0 +1,74 @@
+---
+title: "Acciones de la bolsa de valores"
+author: "Julio C. Magaña-Cáceres"
+date: "2026-08-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(quantmod)
+```
+
+## Extracción de precios de la API
+
+Para extraer el precios de una acción, por ejemplo Microsoft, necesitamos conocer un "código" llamado **tiker**. Si no lo conocemos, lo podemos localizar en la página 
+
+https://es-us.finanzas.yahoo.com/
+
+En particular, el tiker de Microsoft es **MSFT**.
+
+Una vez identifiquemos el tiker, tenemos que fijar una fecha de inicio y una fecha final de extracción de precios, 
+
+```{r}
+inicio = "2024-01-01"
+final = "2026-07-31"
+```
+
+Finalmente, extraemos los precios realizando lo siguiente:
+
+```{r}
+MSFT = getSymbols("MSFT", 
+                  from = inicio, 
+                  to = final, 
+                  src = "yahoo", 
+                  auto.assign = F)
+```
+
+Notemos que el objeto que guardamos es una **serie de tiempo extensible**, denotado por *xts* por sus siglas en inglés, y se ve como sigue:
+
+```{r}
+head(MSFT)
+```
+El significado de cada columna, de izquierda a derecha, son los siguientes:
+
+ - Precios de apertura.
+ - Precio más alto.
+ - Precio más bajo.
+ - Precio de cierre.
+ - Volumen de compra/venta de títulos.
+ - Precio ajustado por repartición de dividendos.
+ 
+Por lo general, el precios ajustado es el que se utiliza para realizar análisis estadístico.
+Así nos quedaremos sólo con esta columna. Adicionalmente, para no trabajar con una tabla, convertiremos esta columna en un vector de datos.
+
+```{r}
+MSFT = as.vector(MSFT[,6]$MSFT.Adjusted)
+```
+
+Aquí ya podemos realizar los cálculos de los estadísticos. Para facilitar la lectura, realizaremos un **data.frame()**.
+
+```{r}
+Estadistico = c("Mínimo", "Q1", "Media", "Mediana", "Q3", "Máximo", "Varianza", "Desviación_Estándar")
+minimo = min(MSFT)
+Q1 = quantile(x = MSFT, probs = 0.25, type = 2)
+Media = mean(MSFT)
+Mediana = median(MSFT)
+Q3 = quantile(x = MSFT, probs = 0.75, type = 2)
+maximo = max(MSFT)
+varianza = var(MSFT)
+DE = sd(MSFT)
+Valor = c(minimo, Q1, Media, Mediana, Q3, maximo, varianza, DE)
+data.frame(Estadistico, Valor)
+```
+
