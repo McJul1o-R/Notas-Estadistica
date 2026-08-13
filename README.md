@@ -257,7 +257,7 @@ Retomando la base de datos original y la primera tabla, obtenemos el siguiente r
 
 Estéticamente, podemos agregar los respectivos porcentajes, redondeando a dos decimales. Por lo que el resultado queda como sigue:
 
-[Script para la frecuencua porcentual y gráfica de pastel](scripts/fporcentual_´pie.R)
+[Script para la frecuencia porcentual y gráfica de pastel](scripts/fporcentual_´pie.R)
 
 ![Gráfica de pastel con etiquetas más elaboradas](imagenes/pie2.png)
 
@@ -404,12 +404,46 @@ library(quantmod)
 
 Continuamos con los procesos de extracción de precios aquí
 
-[Acciones de la bolsa de valores](Rmarkdowns/Acciones.html)
+[Acciones de la bolsa de valores](Rmarkdowns/Acciones.rmd)
+
+### Actividad
+
+Descarga los precios de los últimos 60 días de la acción de Apple y Microsoft (recuerda quedarte solo con los precios ajustados). 
+Responde lo siguiente:
+
+1. Cuál es el tamaño de muestra de cada lista de precios.
+
+2. Calcula el promedio de cada uno y compara. ¿Cuál acción tiene mayor promedio?
+
+3. Calcula la mediana de cada uno y compara. ¿Cuál acción tiene menor mediana?
+
+3. Cálcula el rango de los precios, esto es, restar el precio mayor menos el precio menor de cada uno. 
+¿Qué acción tiene un rango menor?
+
+4. Calcula los tres cuartiles de cada acción.
+
+5. Realiza los diagramas de caja correspondientes.
+
+Puedes apoyarte con la siguiente app
+
+ https://v658m0-julio-maga0a.shinyapps.io/analisisacciones/
 
 ## Distribuciones de probabilidad
+
+Para adentrarnos en las distribuciones, iniciemos con un unos conceptos y notación básica.
+
+Un **experimento** es un proceso que no se controlan sus resultados. 
+
+Un **espacio muestral** es el conjunto de todos los posibles resultados de un experimento. 
+
+
 
 ## Funciones de Momentos y Verosimilitud
 
 ## Estimación por intervalos
+
+Recordemos la diferencia entre muestra y población. Para esto revisemos la siguiente imagen
+
+![Diferencia entre muestra y población](imagenes/muestra-poblacion.png)
 
 ## Pruebas de hipótesis
