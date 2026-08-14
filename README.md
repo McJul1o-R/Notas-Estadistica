@@ -98,11 +98,13 @@ Los datos cuantitativos tienen su propia clasificación:
 Esta nueva clasificación separa a los ejemplos anteriores de la siguiente manera:
 
 Datos discretos:
+
  - Edades de personas
  - Número de autos en una ciudad.
  - Huevos que pone una gallina.
  
 Datos continuos: 
+
  - Litros de refresco que consume una ciudad.
  - Ventas diarias de una empresa.
  - Arena en una parque.
@@ -132,26 +134,27 @@ Algunos ejemplos quedan clasificados como sigue:
 
 - **Nominal**
 
-  -Color de ojos.
-  -Lugar de nacimiento.
+  - Color de ojos.
+  
+  - Lugar de nacimiento.
   
 - **Ordinal**
 
-  -Nivel escolar (primari, secundaria, preparatoria)
-  -Intensidad de color (leve, normal,fuerte)
-  -Tallas de ropa (chica, mediana, grande)
+  - Nivel escolar (primari, secundaria, preparatoria)
+  - Intensidad de color (leve, normal,fuerte)
+  - Tallas de ropa (chica, mediana, grande)
   
 - **Intervalo**
 
- -Temperatura de una ciudad.
- -Tiempo de elaboración de un proyecto.
- -Calificaciones exámenes.
+  - Temperatura de una ciudad.
+  - Tiempo de elaboración de un proyecto.
+  - Calificaciones exámenes.
  
 - **Razón**
 
-  -Velocidad de un auto.
-  -Altura de un edificio.
-  -Ventas de una empresa.
+  - Velocidad de un auto.
+  - Altura de un edificio.
+  - Ventas de una empresa.
   
 Finalizamos esta sección con un ejercicio
 
@@ -166,7 +169,7 @@ Por lo que, para analizar este tipo de datos, primero aprenderemos a contar.
 
 Consideremos la siguiente base de datos de refrescos de preferencia.
 
-```{r}
+```r
 refrescos = c("Coke_Classic", "Pepsi", "Sprite", "Dr.Pepper")
 set.seed(1548)
 datos = sample(refrescos, 30, replace = T)
@@ -182,7 +185,7 @@ Algunas preguntas que nos pueden hacer sobre esta base de datos son
 
 Las primeras dos respuestas salen con el código
 
-```{r}
+```r
 resumen = table(datos)
 resumen
 ```
@@ -193,7 +196,7 @@ El refresco que menos se consume es Dr. Pepper con 5 repeticiones.
 Para la tercera pregunta, si guardamos la tabla resumen (table()) en un objeto llamado resumen y 
 a este nuevo objeto le aplicamos 
 
-```{r}
+```r
 barplot(resumen)
 ```
 
@@ -222,7 +225,7 @@ $$
 
 donde $n$ sigue representando nuestro tamaño de muestra. En R, calculamos esto con el código
 
-```{r}
+```r
 n = length(datos)
 ```
 
@@ -271,7 +274,7 @@ En cualquiera de los casos, los datos se pueden analizar de manera individual o 
 Primero nos enfocaremos a los **datos no agrupados**. Esto es, una lista de datos numéricos, por ejemplo
 las edades de un grupo de trabajo:
 
-```{r}
+```r
 set.seed(369)
 edades = sample(20:38, 200, replace = T)
 ```
@@ -287,7 +290,7 @@ donde $n$ es el tamaño de la muestra. En R, calculamos el promedio con **mean()
 
 En el ejemplo, el promedio de las edades de los trabajadores es 
 
-```{r}
+```r
 mean(edades)
 ```
 
@@ -296,7 +299,7 @@ cuyo resultados es $28.96$.
 Otro estadístico conocido es la **mediana** $Q_2$, la cual representa que el 50% de los datos son menores a $Q_2$ y el otro 50% son mayores.
 Por ejemplo,
 
-```{r}
+```r
 median(edades)
 ```
 
@@ -328,7 +331,7 @@ donde $\lceil \ \rceil$ representa un redondeo hacia arriba cuando sea necesario
 Por ejemplo, si queremos calcular el percentil 35 de las edades, esto implica que el 35% de las edades son menores o iguales a $P_{35}$. 
 En R lo calculamos como
 
-```{r}
+```r
 m = 35
 quantile(x = edades, probs = m/100, type = 2)
 ```
@@ -344,7 +347,7 @@ Estos datos se utilizan para realizar un diagrama de caja que sirve para represe
 
 Para el ejemplo de las edades de los trabajadores, su diagrama de caja se calcula con el código
 
-```{r}
+```r
 boxplot(edades)
 ```
 
@@ -365,13 +368,13 @@ $$
 Como los nombres lo indican, estos estadísticos miden la variación o dispersión de los datos.
 Por ejemplo, las edades tienen una varianza de $30.04864$ y se calcula como
 
-```{r}
+```r
 var(edades)
 ```
 
 Por otro lado, la desviación estándar es $5.481664$ y se calcula como
 
-```{r}
+```r
 sd(edades)
 ```
 
@@ -392,13 +395,13 @@ Si queremos elegir las acciones correctas, tenemos que realizar un análisis de 
 Para esto, utilizaremos la API de yahoo finances que tenemos disponible en Rstudio.
 Si aún no tienen instalado el paquete, tienen que ejecutar en la consola el siguiente código
 
-```{r}
+```r
 install.packages("quantmod")
 ```
 
 Cuando iniciemos un proyecto nuevo, donde utilizaremos la API, tenemos que ejecutar la libreria correspondiente
 
-```{r}
+```r
 library(quantmod)
 ```
 
@@ -424,7 +427,7 @@ Responde lo siguiente:
 
 5. Realiza los diagramas de caja correspondientes.
 
-Puedes apoyarte con la siguiente app
+Puedes apoyarte con la siguiente aplicación:
 
  https://v658m0-julio-maga0a.shinyapps.io/analisisacciones/
 

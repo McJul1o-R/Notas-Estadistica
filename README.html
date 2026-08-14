@@ -448,10 +448,18 @@ rangos de los números reales.</li>
 </ul>
 <p>Esta nueva clasificación separa a los ejemplos anteriores de la
 siguiente manera:</p>
-<p>Datos discretos: - Edades de personas - Número de autos en una
-ciudad. - Huevos que pone una gallina.</p>
-<p>Datos continuos: - Litros de refresco que consume una ciudad. -
-Ventas diarias de una empresa. - Arena en una parque.</p>
+<p>Datos discretos:</p>
+<ul>
+<li>Edades de personas</li>
+<li>Número de autos en una ciudad.</li>
+<li>Huevos que pone una gallina.</li>
+</ul>
+<p>Datos continuos:</p>
+<ul>
+<li>Litros de refresco que consume una ciudad.</li>
+<li>Ventas diarias de una empresa.</li>
+<li>Arena en una parque.</li>
+</ul>
 <p>Para finalizar esta parte, dejamos el siguiente ejercicio</p>
 <p><em>Determina el tipo de dato que representa la siguiente
 imagen</em></p>
@@ -478,19 +486,28 @@ significado y el cero si represetan ausencia del atributo.</p></li>
 <p>Algunos ejemplos quedan clasificados como sigue:</p>
 <ul>
 <li><p><strong>Nominal</strong></p>
-<p>-Color de ojos. -Lugar de nacimiento.</p></li>
-<li><p><strong>Ordinal</strong></p>
-<p>-Nivel escolar (primari, secundaria, preparatoria) -Intensidad de
-color (leve, normal,fuerte) -Tallas de ropa (chica, mediana,
-grande)</p></li>
-<li><p><strong>Intervalo</strong></p></li>
-</ul>
-<p>-Temperatura de una ciudad. -Tiempo de elaboración de un proyecto.
--Calificaciones exámenes.</p>
 <ul>
+<li><p>Color de ojos.</p></li>
+<li><p>Lugar de nacimiento.</p></li>
+</ul></li>
+<li><p><strong>Ordinal</strong></p>
+<ul>
+<li>Nivel escolar (primari, secundaria, preparatoria)</li>
+<li>Intensidad de color (leve, normal,fuerte)</li>
+<li>Tallas de ropa (chica, mediana, grande)</li>
+</ul></li>
+<li><p><strong>Intervalo</strong></p>
+<ul>
+<li>Temperatura de una ciudad.</li>
+<li>Tiempo de elaboración de un proyecto.</li>
+<li>Calificaciones exámenes.</li>
+</ul></li>
 <li><p><strong>Razón</strong></p>
-<p>-Velocidad de un auto. -Altura de un edificio. -Ventas de una
-empresa.</p></li>
+<ul>
+<li>Velocidad de un auto.</li>
+<li>Altura de un edificio.</li>
+<li>Ventas de una empresa.</li>
+</ul></li>
 </ul>
 <p>Finalizamos esta sección con un ejercicio</p>
 <p><em>Realiza un mapa conceptual sobre los tipos de datos y sus
@@ -505,20 +522,23 @@ para tener información medible. Por lo que, para analizar este tipo de
 datos, primero aprenderemos a contar.</p>
 <p>Consideremos la siguiente base de datos de refrescos de
 preferencia.</p>
-<p><code>{r} refrescos = c(&quot;Coke_Classic&quot;, &quot;Pepsi&quot;, &quot;Sprite&quot;, &quot;Dr.Pepper&quot;) set.seed(1548) datos = sample(refrescos, 30, replace = T)</code></p>
+<pre class="r"><code>refrescos = c(&quot;Coke_Classic&quot;, &quot;Pepsi&quot;, &quot;Sprite&quot;, &quot;Dr.Pepper&quot;)
+set.seed(1548)
+datos = sample(refrescos, 30, replace = T)</code></pre>
 <p>Algunas preguntas que nos pueden hacer sobre esta base de datos
 son</p>
 <p><em>¿Cuál es el refresco que más consumen?</em></p>
 <p><em>¿Cuál es el refresco que menos consumen?</em></p>
 <p><em>¿Podemos calcular una gráfica que resuma la información?</em></p>
 <p>Las primeras dos respuestas salen con el código</p>
-<p><code>{r} resumen = table(datos) resumen</code></p>
+<pre class="r"><code>resumen = table(datos)
+resumen</code></pre>
 <p>En el ejemplo anterior, vemos que Pepsi es el refresco que más se
 consume con 10 repeticiones. El refresco que menos se consume es
 Dr. Pepper con 5 repeticiones.</p>
 <p>Para la tercera pregunta, si guardamos la tabla resumen (table()) en
 un objeto llamado resumen y a este nuevo objeto le aplicamos</p>
-<p><code>{r} barplot(resumen)</code></p>
+<pre class="r"><code>barplot(resumen)</code></pre>
 <p>obtenemos una gráfica de barras con la correspondiente
 información.</p>
 <div class="float">
@@ -542,7 +562,7 @@ relativa</strong>, la cual se calcula como</p>
 \]</span></p>
 <p>donde <span class="math inline">\(n\)</span> sigue representando
 nuestro tamaño de muestra. En R, calculamos esto con el código</p>
-<p><code>{r} n = length(datos)</code></p>
+<pre class="r"><code>n = length(datos)</code></pre>
 <p>Por lo que las frecuencias relativas se calculan en el siguiente
 script:</p>
 <p><a href="scripts/02_frecuencia-relativa.R">Frecuencia relativa
@@ -596,7 +616,8 @@ analizar de manera individual o grupal.</p>
 <p>Primero nos enfocaremos a los <strong>datos no agrupados</strong>.
 Esto es, una lista de datos numéricos, por ejemplo las edades de un
 grupo de trabajo:</p>
-<p><code>{r} set.seed(369) edades = sample(20:38, 200, replace = T)</code></p>
+<pre class="r"><code>set.seed(369)
+edades = sample(20:38, 200, replace = T)</code></pre>
 <p>La primera diferencia entre las etiquetas es que no podemos realizar
 conteo de repeticiones ya que los datos no se reducen
 significativamente. Sin embargo, al tener números podemos realizar
@@ -609,12 +630,12 @@ fórmula es:</p>
 <p>donde <span class="math inline">\(n\)</span> es el tamaño de la
 muestra. En R, calculamos el promedio con <strong>mean()</strong></p>
 <p>En el ejemplo, el promedio de las edades de los trabajadores es</p>
-<p><code>{r} mean(edades)</code></p>
+<pre class="r"><code>mean(edades)</code></pre>
 <p>cuyo resultados es <span class="math inline">\(28.96\)</span>.</p>
 <p>Otro estadístico conocido es la <strong>mediana</strong> <span class="math inline">\(Q_2\)</span>, la cual representa que el 50% de los
 datos son menores a <span class="math inline">\(Q_2\)</span> y el otro
 50% son mayores. Por ejemplo,</p>
-<p><code>{r} median(edades)</code></p>
+<pre class="r"><code>median(edades)</code></pre>
 <p>dice que el 50% de los trabajadores tienen edades menores o iguales a
 29. Mientras que el otro 50% son mayores a 29 años.</p>
 <p>La interpretación de la mediana se puede generalizar a cualquier
@@ -646,8 +667,9 @@ hacia arriba, entonces</li>
 \]</span></p>
 <p>Por ejemplo, si queremos calcular el percentil 35 de las edades, esto
 implica que el 35% de las edades son menores o iguales a <span class="math inline">\(P_{35}\)</span>. En R lo calculamos como</p>
-<p><code>{r} m = 35 quantile(x = edades, probs = m/100, type = 2)</code>
-Por lo que el 35% de los trabajadores tienen una edad menor o igual a
+<pre class="r"><code>m = 35
+quantile(x = edades, probs = m/100, type = 2)</code></pre>
+<p>Por lo que el 35% de los trabajadores tienen una edad menor o igual a
 <span class="math inline">\(26\)</span>.</p>
 <p>Los percentiles más usados son el <span class="math inline">\(P_{25}\)</span>, <span class="math inline">\(P_{50}\)</span> y <span class="math inline">\(P_{75}\)</span> y reciben el nombre de
 <strong>cuartiles</strong> ya que dividen a los datos en 4 partes
@@ -663,7 +685,7 @@ para representar la distribución de los datos y su respectiva
 posición.</p>
 <p>Para el ejemplo de las edades de los trabajadores, su diagrama de
 caja se calcula con el código</p>
-<p><code>{r} boxplot(edades)</code></p>
+<pre class="r"><code>boxplot(edades)</code></pre>
 <p>Cuyo resultado es</p>
 <div class="float">
 <img role="img" aria-label="Diagrama de caja de las edades de los trabajadores" src="data:image/png;base64,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A88HADps6o3zB8fb7v15+PnAEs4a4izqjfP7x/Hpl0++e/XLl0/++Og47paCwzBBHGcNcRb1xuPj7jdvffni/vHZ6POBLZw1xNnTGxcPjy/+6jeeHT9/Ovh8YA1nDXH29Mb5/Xe+f/I3v9H7fGANZw1xFvfG8zO9AQAR9vTGxcN3Xq/x2PdTACDDnt44PTuOX/0QGBe/P955PUf38wGAJot64/T4OI6f/fLzS7/55NWvfzX8fGAJZw1xNvXG6dtP3nq7rzu/G38+sIOzhjireuN0evHvn//i0uf/+t2NPB/YwFlDnGW98RE+H/jJOWuI8xH2xvGO6efDx+Tde6HRTf/Lhs1W9cbF//zjLz798vor7/cFACE29cbzs+//L8K9r15/qTcAIMSi3rj8fNhffn75mfSfXX2tNwAgwqLeuPp82BcPr4JDbwBAiD298ebzYS/fWfTyvTf0BgCE2NMbb+XF67cy1xsAEGJlb5y+Pu58pTcAIMWe3rh4eOerH3593P1GbwBAiD29cfr6+Ls3vz5/cNz9T70BABkW9cbzs+Pel9cfSH/5w7GH3gCACIt64/Tt24Vx/kBvAECITb1xevHo738ojIt/O9MbABBhVW+8q/SZ9HoDALZb3RsfxfMBgA/RGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAN70BAHTTGwBAt4DeAAC2+///ef8TNAMAwPvoDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALrpDQCgm94AALr9L43QfDnN37zcAAAAAElFTkSuQmCC" alt="Diagrama de caja de las edades de los trabajadores" />
@@ -681,9 +703,9 @@ varianza y la desviación estándar. Sus fórmulas son</p>
 <p>Como los nombres lo indican, estos estadísticos miden la variación o
 dispersión de los datos. Por ejemplo, las edades tienen una varianza de
 <span class="math inline">\(30.04864\)</span> y se calcula como</p>
-<p><code>{r} var(edades)</code></p>
+<pre class="r"><code>var(edades)</code></pre>
 <p>Por otro lado, la desviación estándar es <span class="math inline">\(5.481664\)</span> y se calcula como</p>
-<p><code>{r} sd(edades)</code></p>
+<pre class="r"><code>sd(edades)</code></pre>
 <p>En otras palabras, las edades tienen una variación aproximada de
 <span class="math inline">\(5.48\)</span> años.</p>
 <p>En conclusión, existen diferentes estadísticos relacionados con los
@@ -706,10 +728,10 @@ precios.</p>
 <p>Para esto, utilizaremos la API de yahoo finances que tenemos
 disponible en Rstudio. Si aún no tienen instalado el paquete, tienen que
 ejecutar en la consola el siguiente código</p>
-<p><code>{r} install.packages(&quot;quantmod&quot;)</code></p>
+<pre class="r"><code>install.packages(&quot;quantmod&quot;)</code></pre>
 <p>Cuando iniciemos un proyecto nuevo, donde utilizaremos la API,
 tenemos que ejecutar la libreria correspondiente</p>
-<p><code>{r} library(quantmod)</code></p>
+<pre class="r"><code>library(quantmod)</code></pre>
 <p>Continuamos con los procesos de extracción de precios aquí</p>
 <p><a href="Rmarkdowns/Acciones.rmd">Acciones de la bolsa de
 valores</a></p>
@@ -731,7 +753,7 @@ menor?</p></li>
 <li><p>Calcula los tres cuartiles de cada acción.</p></li>
 <li><p>Realiza los diagramas de caja correspondientes.</p></li>
 </ol>
-<p>Puedes apoyarte con la siguiente app</p>
+<p>Puedes apoyarte con la siguiente aplicación:</p>
 <p><a href="https://v658m0-julio-maga0a.shinyapps.io/analisisacciones/" class="uri">https://v658m0-julio-maga0a.shinyapps.io/analisisacciones/</a></p>
 </div>
 </div>
