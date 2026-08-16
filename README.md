@@ -475,9 +475,11 @@ Por lo que tenemos las siguientes propiedades:
 
 **Proposición:** Para un espacio de eventos $\mathcal{A}$, 
 
-  i) $\emptyset \in \mathcal{A}$.
-  ii) Si $A_1, A_2 \in \mathcal{A}$, entonces $A_1 \cap A_2 \in \mathcal{A}$.
-  iii) Si $A_1, A_2, \ldots, A_n \in \mathcal{A},$ entonces
+  i. $\emptyset \in \mathcal{A}$.
+  
+  ii. Si $A_1, A_2 \in \mathcal{A}$, entonces $A_1 \cap A_2 \in \mathcal{A}$.
+  
+  iii. Si $A_1, A_2, \ldots, A_n \in \mathcal{A},$ entonces
   $$
   \bigcup_{i=1}^n A_i, \text{ and } \ \bigcap_{i = 1}^n A_i \in \mathcal{A}.
   $$
