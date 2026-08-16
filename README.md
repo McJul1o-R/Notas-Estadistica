@@ -492,6 +492,7 @@ se define por
 $$
 I_A : \Omega \longrightarrow \{0, 1\},
 $$
+
 donde,
 
 $$
@@ -500,6 +501,21 @@ I_A(w) = \begin{cases}
             0 & \text{si } w \not\in A
           \end{cases}
 $$
+
+Algunas propiedades que se cumplen son las siguientes
+
+**Proposición:** Consideremos un conjunto $\Omega$ y $\mathcal{A}$ 
+cualquier colección de subconjuntos de $\Omega$. 
+
+i. $I_A(w) = 1 - I_{A^c}(w)$ para cualquier $A \in \mathcal{A}$.
+
+ii. $I_{A_1 \cap A_2 \cap \ldots \cap A_n}(w) = I_{A_1}(w) \cdot I_{A_1}(w) \cdots I_{A_n}(w)$, 
+para $A_1, \ldots, A_n \in \mathcal{A}$.
+
+iii. $I_{A_1 \cup A_2 \cup \ldots \cup A_n}(w) = \max(I_{A_1}(w), \ldots, I_{A_n}(w))$,
+para $A_1, \ldots, A_n \in \mathcal{A}$.
+
+iv. $I^2_{A}(w) = I_{A}(w)$, para cualquier $A \in \mathcal{A}$.
 
 ## Funciones de Momentos y Verosimilitud
 
