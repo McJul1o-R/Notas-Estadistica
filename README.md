@@ -435,11 +435,68 @@ Puedes apoyarte con la siguiente aplicación:
 
 Para adentrarnos en las distribuciones, iniciemos con un unos conceptos y notación básica.
 
-Un **experimento** es un proceso que no se controlan sus resultados. 
+Un **experimento aleatorio** es un proceso que no se controlan sus resultados. 
 
 Un **espacio muestral** es el conjunto de todos los posibles resultados de un experimento. 
+Su notación es
+$$
+\Omega
+$$
 
+Un **Evento** es un subconjunto de $\Omega$.
 
+Las clases de todos los eventos, asociados con un experimento, es
+definido por **Espacio de eventos**.
+
+**Ejemplo:** Lanzar un dado y observar el valor de arriba. 
+El espacio muestral tiene 6 elementos, los 6 posibles valores del dado.
+Si
+$$
+A = \{\text{Sale un número par}\},
+$$
+entonces $A$ es un evento. El espacio de eventos es el espacio de todos los 
+subconjunto (conjunto potencia). Notemos que el espacio de eventos es finito ya que
+$|\Omega| = 6$ y por lo tanto, tenemos $2^6 = 64$ eventos distintos, 
+incluyento el vacío $\emptyset$ y el total $\Omega$.
+
+**Ejercicio:** Define el espacio muestral del experimento de jugar tres
+partidos, donde puedes ganar, perder o empatar. Describe un evento y la
+cardinalidad de su espacio de eventos (conjunto potencia).
+
+Notemos que el conjunto potencia no es el único espacio de eventos $\mathcal{A}$ 
+que podemos elegir. Sin embargo, las principales características que se cumplen 
+son las siguientes:
+
+ - $\Omega \in \mathcal{A}$
+ - Si $A \in \mathcal{A}$, entonces $A^c \in \mathcal{A}$
+ - Si $A_1, A_2 \in \mathcal{A}$, entonces $A_1 \cup A_2 \in \mathcal{A}$
+ 
+Por lo que tenemos las siguientes propiedades: 
+
+**Proposición:** Para un espacio de eventos $\mathcal{A}$, 
+
+  i) $\emptyset \in \mathcal{A}$.
+  ii) Si $A_1, A_2 \in \mathcal{A}$, entonces $A_1 \cap A_2 \in \mathcal{A}$.
+  iii) Si $A_1, A_2, \ldots, A_n \in \mathcal{A},$ entonces
+  $$
+  \bigcup_{i=1}^n A_i, \text{ and } \ \bigcap_{i = 1}^n A_i \in \mathcal{A}.
+  $$
+  
+Complementando los espacios muestrales y de eventos, necesitamos definir unas 
+funciones útiles, como la **función indicadora**, que para $A \in \mathcal{A}$, 
+se define por 
+
+$$
+I_A : \Omega \longrightarrow \{0, 1\},
+$$
+donde,
+
+$$
+I_A(w) = \left\{ \begin{array}{ll}
+                    1 & \text{si } w \in A, \\
+                    0 & \text{si } w \not\in A
+                  \end{array} \right.
+$$
 
 ## Funciones de Momentos y Verosimilitud
 
@@ -448,5 +505,8 @@ Un **espacio muestral** es el conjunto de todos los posibles resultados de un ex
 Recordemos la diferencia entre muestra y población. Para esto revisemos la siguiente imagen
 
 ![Diferencia entre muestra y población](imagenes/muestra-poblacion.png)
+
+Recordemos que el objetivo principal de los estadísticos es aproximar los parámetros.
+
 
 ## Pruebas de hipótesis
