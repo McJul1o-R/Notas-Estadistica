@@ -492,10 +492,10 @@ $$
 donde,
 
 $$
-I_A(w) = \left\{ \begin{array}{ll}
-                    1 & \text{si } w \in A, \\
-                    0 & \text{si } w \not\in A
-                  \end{array} \right.
+I_A(w) = \begin{cases}
+            1 & \text{si } w \in A, \\
+            0 & \text{si } w \not\in A
+          \end{cases}
 $$
 
 ## Funciones de Momentos y Verosimilitud
