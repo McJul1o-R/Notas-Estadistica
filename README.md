@@ -471,7 +471,8 @@ son las siguientes:
  - Si $A \in \mathcal{A}$, entonces $A^c \in \mathcal{A}$
  - Si $A_1, A_2 \in \mathcal{A}$, entonces $A_1 \cup A_2 \in \mathcal{A}$
  
-Por lo que tenemos las siguientes propiedades: 
+Cualquier familida de subconjuntos con estas propiedades igual son conocidas como 
+**Álgebra de eventos**. Por otro lado, tenemos las siguientes propiedades: 
 
 **Proposición:** Para un espacio de eventos $\mathcal{A}$, 
 
@@ -490,7 +491,7 @@ funciones útiles, como la **función indicadora**, que para $A \in \mathcal{A}$
 se define por 
 
 $$
-I_A : \Omega \longrightarrow \{0, 1\},
+I_A : \Omega \longrightarrow \{ 0, 1\},
 $$
 
 donde,
@@ -516,6 +517,222 @@ iii. $I_{A_1 \cup A_2 \cup \ldots \cup A_n}(w) = \max(I_{A_1}(w), \ldots, I_{A_n
 para $A_1, \ldots, A_n \in \mathcal{A}$.
 
 iv. $I^2_{A}(w) = I_{A}(w)$, para cualquier $A \in \mathcal{A}$.
+
+Para un álgebra de eventos $\mathcal{A}$, una función importante que usaremos es la **función de probabilidad**
+
+$$
+P : \mathcal{A} \longrightarrow [0,1],
+$$
+
+La cual cumple con las siguientes propiedades:
+
+i. $P(\Omega) = 1$.
+
+ii. Si $A_1, A_2, \ldots$ es una sucesión de eventos excluyentes en $\mathcal{A}$
+(esto es, $A_i \cap A_j = \emptyset$ para todo $i \not= j$), tales que la unión 
+pertenece a $\mathcal{A}$, entonces
+
+$$
+P\left( \bigcup_{i = 1}^{\infty} A_i \right) = \sum_{i = 1}^{\infty} P(A_i)
+$$
+
+Algunas propiedades para una función de probabilidad son:
+
+i. $P(\emptyset) = 0$.
+
+ii. Si $A_1, \ldots, A_n$ son mutuamente excluyentes en $\mathcal{A}$, entonces
+
+$$
+  P(A_1 \cup \ldots \cup A_n) = \sum_{i = 1}^n P(A_i)
+$$
+
+iii. Si $A \in \mathcal{A}$,  entonces 
+
+$$
+P(A^c) = 1 - P(A).
+$$
+
+iv. Si $A,B \in \mathcal{A}$, entonces 
+
+  - $P(A) = P(A \cap B) + P(A \cap B^c)$
+
+  - $P(A - B) = P(A \cap B^c) = P(A) - P(A \cap B)$
+  
+  - $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+
+v. Si $A \subset B \in \mathcal{A}$, entonces $P(A) \leq P(B)$.
+
+vi. (*Desigualdad de Boole*) Si $A_1, \ldots, A_n \in \mathcal{A}$, entonces
+
+$$
+P(A_1 \cup \ldots \cup A_n) \leq \sum_{i = 1}^n P(A_i)
+$$
+
+Por lo que un **espacio de probabilidad** se define como una tripleta $(\Omega, \mathcal{A}, P(\cdot))$
+
+Una **variable aleatoria** es una función
+
+$$
+X: \Omega \longrightarrow \mathbb{R},
+$$
+
+tal que los conjuntos $A_r = \{ \omega \in \Omega | X(\omega) \leq r \} \in \mathcal{A}$ para todo
+$r \in \mathbb{R}$.
+
+Esto permite definir la **función de distribución acumulada** de la 
+variable aleatoria $X$, como
+
+$$
+F_X : \mathbb{R} \longrightarrow [0,1],
+$$
+
+donde $F_X(x) = P(X \leq x) := P(\{ \omega | X(\omega) \leq x \})$.
+
+En general, una función de distribución acumulada es 
+cualquier función $F: \mathbb{R} \longrightarrow [0,1]$ con las siguientes
+propiedades:
+
+i. $F(- \infty) \equiv \lim_{x \to - \infty} F(x) =  0$ y 
+$F(+ \infty) \equiv \lim_{x \to +\infty} F(x) = 1$.
+
+ii. $F$ es monótona, no decreciente (Para $a < b$, $F(a) \leq F(b)$).
+
+iii. $F$ es continua por la derecha, esto es,
+
+$$
+  \lim_{0 < h  \to 0} F(x + h) = F(x)
+$$
+
+Para continuar con las propiedades, es importante diferenciar dos tipos de 
+tipos de variables aleatorias, 
+
+ - Discretas,
+ - Continuas.
+ 
+### Variables aleatorias Discretas
+
+Una variable aleatoria $X$ se llama **discreta** cuando $X$ es contable.
+Análogamente, su correspondiente distribución acumulada, se llamará discreta.
+
+La **función de densidad** para una variable aleatoria discreta $X$ es
+
+$$
+f_X(x) = \begin{cases}
+            P(X = x_i), & \text{Cuando $x = x_i$, valor de $X$} \\
+            0, & \text{Cuando $x$ no es valor de $X$}            
+          \end{cases}
+$$
+
+En general, una función 
+
+$$
+f: \mathbb{R} \longrightarrow [0,1],
+$$
+
+es considerada **función de densidad discreta** cuando cumple
+las siguientes propiedades para un conjunto discretos $(x_n)$
+
+i. $f(x_i) > 0$ para todo $i = 1, 2, \ldots$
+
+ii. $f(x) = 0$ para $x \not= x_i \in (x_n)$
+
+iii. $\sum_{x_i \in (x_n)} f(x_i) = 1$
+
+### Variables aleatorias Continuas
+
+Una variable aleatoria $X$ se llama **continua** cuando existe una función
+$f_X$ tal que 
+
+$$
+F_X(x) = \int_{-\infty}^{x} f_X(u) \ du
+$$
+
+La función $F_X$ es la distribución acumulada, con función de densidad $f_X$. 
+
+En general, una función
+
+$$
+f: \mathbb{R} \longrightarrow [0, \infty),
+$$
+
+define una función de densidad de probabilidad (continua) si y sólo si
+
+$$
+\int_{-\infty}^{\infty} f(x) \ dx = 1
+$$
+
+### Esperanza
+
+Uno de los conceptos más utilizados, en el estudio de distribuciones en 
+variables aleatorias, es la **esperanza**.
+
+Intuitivamente, la esperanza calcula un promedio ponderado y su fórmula depende
+de si la variable aleatoria $X$ es discreta o continiua. 
+
+ - Si $X$ es discreta, entonces
+ 
+ $$
+  E(X) = \sum x_j \cdot f_X(x_j) 
+ $$
+ 
+ - Si $X$ es continua, entonces
+ 
+ $$
+  E(X) = \int_{-\infty}^{\infty} x \cdot f_X(x) \ dx
+ $$
+ 
+Debido a las semejanzas, la esperanza se conoce como media o promedio 
+y se denota por $\mu$ o $\mu_X$ cuando sea necesario.
+
+De manera similar, la **varianza** de una variable aleatoria $X$ se define por
+
+$$
+Var(X) = \sum (x_j - \mu)^2 \cdot f_X(x_j),
+$$
+
+cuando $X$ es discreta o
+
+$$
+Var(X) = \int_{-\infty}^{\infty} (x - \mu)^2 \cdot f_X(x) \ dx
+$$
+
+cuando $X$ es continua.
+
+En ambos casos, la **desviación estándar** es el valor positivo de
+la raíz cuadrada de la varianza, $\sqrt{(Var(X))}$.
+
+Para una función $g: \mathbb{R} \longrightarrow \mathbb{R}$, definimos
+la esperanza de $g$ sobre la variable aleatoria $X$ como 
+
+$$
+E(g(X)) = \sum g(x_j) \cdot f_X(x_j),
+$$
+
+cuando $X$ es discreta, o
+
+$$
+E(g(X)) = \int_{-\infty}^{\infty} g(x) \cdot f_X(x) \ dx,
+$$
+
+cuando $X$ es continua.
+
+Algunas propiedades que cumplen las esperanzas son las siguientes:
+
+i. $E(c) = c$, para una constante $c$.
+
+ii. $E(cg(X)) = cE(g(X))$.
+
+iii. $E(c_1g_1(X) + c_2g_2(X)) = c_1E(g_1(X)) + c_2E(g_2(X))$
+
+iv. Si $g_1(x) \leq g_2(x)$ para todo $x \in \mathbb{R}$, entonces
+$E(g_1(X)) \leq E(g_2(X))$.
+
+**Teorema:** Si $X$ es una variable aleatoria tal que $E(X^2)$ existe, entonces
+
+$$
+Var(X) = E(X^2) - (E(X))^2
+$$
+
 
 ## Funciones de Momentos y Verosimilitud
 

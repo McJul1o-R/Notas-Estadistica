@@ -796,7 +796,9 @@ siguientes:</p>
 entonces <span class="math inline">\(A_1 \cup A_2 \in
 \mathcal{A}\)</span></li>
 </ul>
-<p>Por lo que tenemos las siguientes propiedades:</p>
+<p>Cualquier familida de subconjuntos con estas propiedades igual son
+conocidas como <strong>Álgebra de eventos</strong>. Por otro lado,
+tenemos las siguientes propiedades:</p>
 <p><strong>Proposición:</strong> Para un espacio de eventos <span class="math inline">\(\mathcal{A}\)</span>,</p>
 <ol style="list-style-type: lower-roman">
 <li><p><span class="math inline">\(\emptyset \in
@@ -816,7 +818,7 @@ definir unas funciones útiles, como la <strong>función
 indicadora</strong>, que para <span class="math inline">\(A \in
 \mathcal{A}\)</span>, se define por</p>
 <p><span class="math display">\[
-I_A : \Omega \longrightarrow \{0, 1\},
+I_A : \Omega \longrightarrow \{ 0, 1\},
 \]</span></p>
 <p>donde,</p>
 <p><span class="math display">\[
@@ -843,6 +845,205 @@ A_n}(w) = \max(I_{A_1}(w), \ldots, I_{A_n}(w))\)</span>, para <span class="math 
 cualquier <span class="math inline">\(A \in
 \mathcal{A}\)</span>.</p></li>
 </ol>
+<p>Para un álgebra de eventos <span class="math inline">\(\mathcal{A}\)</span>, una función importante que
+usaremos es la <strong>función de probabilidad</strong></p>
+<p><span class="math display">\[
+P : \mathcal{A} \longrightarrow [0,1],
+\]</span></p>
+<p>La cual cumple con las siguientes propiedades:</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(P(\Omega) = 1\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(A_1, A_2, \ldots\)</span> es una
+sucesión de eventos excluyentes en <span class="math inline">\(\mathcal{A}\)</span> (esto es, <span class="math inline">\(A_i \cap A_j = \emptyset\)</span> para todo <span class="math inline">\(i \not= j\)</span>), tales que la unión pertenece
+a <span class="math inline">\(\mathcal{A}\)</span>, entonces</p></li>
+</ol>
+<p><span class="math display">\[
+P\left( \bigcup_{i = 1}^{\infty} A_i \right) = \sum_{i = 1}^{\infty}
+P(A_i)
+\]</span></p>
+<p>Algunas propiedades para una función de probabilidad son:</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(P(\emptyset) = 0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(A_1, \ldots, A_n\)</span> son
+mutuamente excluyentes en <span class="math inline">\(\mathcal{A}\)</span>, entonces</p></li>
+</ol>
+<p><span class="math display">\[
+  P(A_1 \cup \ldots \cup A_n) = \sum_{i = 1}^n P(A_i)
+\]</span></p>
+<ol start="3" style="list-style-type: lower-roman">
+<li>Si <span class="math inline">\(A \in \mathcal{A}\)</span>,
+entonces</li>
+</ol>
+<p><span class="math display">\[
+P(A^c) = 1 - P(A).
+\]</span></p>
+<ol start="4" style="list-style-type: lower-roman">
+<li>Si <span class="math inline">\(A,B \in \mathcal{A}\)</span>,
+entonces</li>
+</ol>
+<ul>
+<li><p><span class="math inline">\(P(A) = P(A \cap B) + P(A \cap
+B^c)\)</span></p></li>
+<li><p><span class="math inline">\(P(A - B) = P(A \cap B^c) = P(A) - P(A
+\cap B)\)</span></p></li>
+<li><p><span class="math inline">\(P(A \cup B) = P(A) + P(B) - P(A \cap
+B)\)</span></p></li>
+</ul>
+<ol start="22" style="list-style-type: lower-alpha">
+<li>Si <span class="math inline">\(A \subset B \in \mathcal{A}\)</span>,
+entonces <span class="math inline">\(P(A) \leq P(B)\)</span>.</li>
+</ol>
+<ol start="6" style="list-style-type: lower-roman">
+<li>(<em>Desigualdad de Boole</em>) Si <span class="math inline">\(A_1,
+\ldots, A_n \in \mathcal{A}\)</span>, entonces</li>
+</ol>
+<p><span class="math display">\[
+P(A_1 \cup \ldots \cup A_n) \leq \sum_{i = 1}^n P(A_i)
+\]</span></p>
+<p>Por lo que un <strong>espacio de probabilidad</strong> se define como
+una tripleta <span class="math inline">\((\Omega, \mathcal{A},
+P(\cdot))\)</span></p>
+<p>Una <strong>variable aleatoria</strong> es una función</p>
+<p><span class="math display">\[
+X: \Omega \longrightarrow \mathbb{R},
+\]</span></p>
+<p>tal que los conjuntos <span class="math inline">\(A_r = \{ \omega \in
+\Omega | X(\omega) \leq r \} \in \mathcal{A}\)</span> para todo <span class="math inline">\(r \in \mathbb{R}\)</span>.</p>
+<p>Esto permite definir la <strong>función de distribución
+acumulada</strong> de la variable aleatoria <span class="math inline">\(X\)</span>, como</p>
+<p><span class="math display">\[
+F_X : \mathbb{R} \longrightarrow [0,1],
+\]</span></p>
+<p>donde <span class="math inline">\(F_X(x) = P(X \leq x) := P(\{ \omega
+| X(\omega) \leq x \})\)</span>.</p>
+<p>En general, una función de distribución acumulada es cualquier
+función <span class="math inline">\(F: \mathbb{R} \longrightarrow
+[0,1]\)</span> con las siguientes propiedades:</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(F(- \infty) \equiv \lim_{x \to -
+\infty} F(x) =  0\)</span> y <span class="math inline">\(F(+ \infty)
+\equiv \lim_{x \to +\infty} F(x) = 1\)</span>.</p></li>
+<li><p><span class="math inline">\(F\)</span> es monótona, no
+decreciente (Para <span class="math inline">\(a &lt; b\)</span>, <span class="math inline">\(F(a) \leq F(b)\)</span>).</p></li>
+<li><p><span class="math inline">\(F\)</span> es continua por la
+derecha, esto es,</p></li>
+</ol>
+<p><span class="math display">\[
+  \lim_{0 &lt; h  \to 0} F(x + h) = F(x)
+\]</span></p>
+<p>Para continuar con las propiedades, es importante diferenciar dos
+tipos de tipos de variables aleatorias,</p>
+<ul>
+<li>Discretas,</li>
+<li>Continuas.</li>
+</ul>
+<div id="variables-aleatorias-discretas" class="section level3">
+<h3>Variables aleatorias Discretas</h3>
+<p>Una variable aleatoria <span class="math inline">\(X\)</span> se
+llama <strong>discreta</strong> cuando <span class="math inline">\(X\)</span> es contable. Análogamente, su
+correspondiente distribución acumulada, se llamará discreta.</p>
+<p>La <strong>función de densidad</strong> para una variable aleatoria
+discreta <span class="math inline">\(X\)</span> es</p>
+<p><span class="math display">\[
+f_X(x) = \begin{cases}
+            P(X = x_i), &amp; \text{Cuando $x = x_i$, valor de $X$} \\
+            0, &amp; \text{Cuando $x$ no es valor de $X$}            
+          \end{cases}
+\]</span></p>
+<p>En general, una función</p>
+<p><span class="math display">\[
+f: \mathbb{R} \longrightarrow [0,1],
+\]</span></p>
+<p>es considerada <strong>función de densidad discreta</strong> cuando
+cumple las siguientes propiedades para un conjunto discretos <span class="math inline">\((x_n)\)</span></p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(f(x_i) &gt; 0\)</span> para todo
+<span class="math inline">\(i = 1, 2, \ldots\)</span></p></li>
+<li><p><span class="math inline">\(f(x) = 0\)</span> para <span class="math inline">\(x \not= x_i \in (x_n)\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{x_i \in (x_n)} f(x_i) =
+1\)</span></p></li>
+</ol>
+</div>
+<div id="variables-aleatorias-continuas" class="section level3">
+<h3>Variables aleatorias Continuas</h3>
+<p>Una variable aleatoria <span class="math inline">\(X\)</span> se
+llama <strong>continua</strong> cuando existe una función <span class="math inline">\(f_X\)</span> tal que</p>
+<p><span class="math display">\[
+F_X(x) = \int_{-\infty}^{x} f_X(u) \ du
+\]</span></p>
+<p>La función <span class="math inline">\(F_X\)</span> es la
+distribución acumulada, con función de densidad <span class="math inline">\(f_X\)</span>.</p>
+<p>En general, una función</p>
+<p><span class="math display">\[
+f: \mathbb{R} \longrightarrow [0, \infty),
+\]</span></p>
+<p>define una función de densidad de probabilidad (continua) si y sólo
+si</p>
+<p><span class="math display">\[
+\int_{-\infty}^{\infty} f(x) \ dx = 1
+\]</span></p>
+</div>
+<div id="esperanza" class="section level3">
+<h3>Esperanza</h3>
+<p>Uno de los conceptos más utilizados, en el estudio de distribuciones
+en variables aleatorias, es la <strong>esperanza</strong>.</p>
+<p>Intuitivamente, la esperanza calcula un promedio ponderado y su
+fórmula depende de si la variable aleatoria <span class="math inline">\(X\)</span> es discreta o continiua.</p>
+<ul>
+<li>Si <span class="math inline">\(X\)</span> es discreta, entonces</li>
+</ul>
+<p><span class="math display">\[
+  E(X) = \sum x_j \cdot f_X(x_j)
+\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(X\)</span> es continua, entonces</li>
+</ul>
+<p><span class="math display">\[
+  E(X) = \int_{-\infty}^{\infty} x \cdot f_X(x) \ dx
+\]</span></p>
+<p>Debido a las semejanzas, la esperanza se conoce como media o promedio
+y se denota por <span class="math inline">\(\mu\)</span> o <span class="math inline">\(\mu_X\)</span> cuando sea necesario.</p>
+<p>De manera similar, la <strong>varianza</strong> de una variable
+aleatoria <span class="math inline">\(X\)</span> se define por</p>
+<p><span class="math display">\[
+Var(X) = \sum (x_j - \mu)^2 \cdot f_X(x_j),
+\]</span></p>
+<p>cuando <span class="math inline">\(X\)</span> es discreta o</p>
+<p><span class="math display">\[
+Var(X) = \int_{-\infty}^{\infty} (x - \mu)^2 \cdot f_X(x) \ dx
+\]</span></p>
+<p>cuando <span class="math inline">\(X\)</span> es continua.</p>
+<p>En ambos casos, la <strong>desviación estándar</strong> es el valor
+positivo de la raíz cuadrada de la varianza, <span class="math inline">\(\sqrt{(Var(X))}\)</span>.</p>
+<p>Para una función <span class="math inline">\(g: \mathbb{R}
+\longrightarrow \mathbb{R}\)</span>, definimos la esperanza de <span class="math inline">\(g\)</span> sobre la variable aleatoria <span class="math inline">\(X\)</span> como</p>
+<p><span class="math display">\[
+E(g(X)) = \sum g(x_j) \cdot f_X(x_j),
+\]</span></p>
+<p>cuando <span class="math inline">\(X\)</span> es discreta, o</p>
+<p><span class="math display">\[
+E(g(X)) = \int_{-\infty}^{\infty} g(x) \cdot f_X(x) \ dx,
+\]</span></p>
+<p>cuando <span class="math inline">\(X\)</span> es continua.</p>
+<p>Algunas propiedades que cumplen las esperanzas son las
+siguientes:</p>
+<ol style="list-style-type: lower-roman">
+<li><p><span class="math inline">\(E(c) = c\)</span>, para una constante
+<span class="math inline">\(c\)</span>.</p></li>
+<li><p><span class="math inline">\(E(cg(X)) =
+cE(g(X))\)</span>.</p></li>
+<li><p><span class="math inline">\(E(c_1g_1(X) + c_2g_2(X)) =
+c_1E(g_1(X)) + c_2E(g_2(X))\)</span></p></li>
+<li><p>Si <span class="math inline">\(g_1(x) \leq g_2(x)\)</span> para
+todo <span class="math inline">\(x \in \mathbb{R}\)</span>, entonces
+<span class="math inline">\(E(g_1(X)) \leq E(g_2(X))\)</span>.</p></li>
+</ol>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span>
+es una variable aleatoria tal que <span class="math inline">\(E(X^2)\)</span> existe, entonces</p>
+<p><span class="math display">\[
+Var(X) = E(X^2) - (E(X))^2
+\]</span></p>
+</div>
 </div>
 <div id="funciones-de-momentos-y-verosimilitud" class="section level2">
 <h2>Funciones de Momentos y Verosimilitud</h2>
