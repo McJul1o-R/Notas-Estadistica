@@ -25,6 +25,10 @@ Cabe mencionar que si utilizan GitHub, pueden vincular el Rstudio con Git para s
 sus proyectos y tareas. Realizar esto queda fuera de este curso, por lo que invitamos 
 a los lectores interesados investigar más a fondo sobre esto.
 
+Para algunos consejos, ver:
+
+[Consejos para Github en Rstudio](Rmarkdowns/GithubR.md)
+
 ## Estadística descriptiva
 
 ### Conceptos básicos
