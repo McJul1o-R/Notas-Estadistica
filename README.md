@@ -407,7 +407,14 @@ library(quantmod)
 
 Continuamos con los procesos de extracción de precios aquí
 
-[Acciones de la bolsa de valores](Rmarkdowns/Acciones.html)
+[Acciones de la bolsa de valores](scripts/06_acciones.R)
+
+Considera que para extraer el precios de una acción, 
+por ejemplo Microsoft, necesitamos conocer un “código” 
+llamado tiker. Si no lo conocemos, lo podemos localizar 
+en la página
+
+https://es-us.finanzas.yahoo.com/
 
 ### Actividad
 
