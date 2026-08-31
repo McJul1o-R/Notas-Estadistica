@@ -439,6 +439,7 @@ Un **experimento aleatorio** es un proceso que no se controlan sus resultados.
 
 Un **espacio muestral** es el conjunto de todos los posibles resultados de un experimento. 
 Su notación es
+
 $$
 \Omega
 $$
@@ -505,23 +506,23 @@ $$
 
 Algunas propiedades que se cumplen son las siguientes
 
-**Proposición:** Consideremos un conjunto $\Omega$ y $\mathcal{A}$ 
-cualquier colección de subconjuntos de $\Omega$. 
+**Proposición:** Consideremos un conjunto $\Omega$ y $\mathcal{F}$ 
+cualquier familia de subconjuntos de $\Omega$. 
 
-i. $I_A(w) = 1 - I_{A^c}(w)$ para cualquier $A \in \mathcal{A}$.
+i. $I_A(w) = 1 - I_{A^c}(w)$ para cualquier $A \in \mathcal{F}$.
 
 ii. $I_{A_1 \cap A_2 \cap \ldots \cap A_n}(w) = I_{A_1}(w) \cdot I_{A_1}(w) \cdots I_{A_n}(w)$, 
-para $A_1, \ldots, A_n \in \mathcal{A}$.
+para $A_1, \ldots, A_n \in \mathcal{F}$.
 
 iii. $I_{A_1 \cup A_2 \cup \ldots \cup A_n}(w) = \max(I_{A_1}(w), \ldots, I_{A_n}(w))$,
-para $A_1, \ldots, A_n \in \mathcal{A}$.
+para $A_1, \ldots, A_n \in \mathcal{F}$.
 
-iv. $I^2_{A}(w) = I_{A}(w)$, para cualquier $A \in \mathcal{A}$.
+iv. $I^2_{A}(w) = I_{A}(w)$, para cualquier $A \in \mathcal{F}$.
 
-Para un álgebra de eventos $\mathcal{A}$, una función importante que usaremos es la **función de probabilidad**
+Para un álgebra de eventos $\mathcal{F}$, una función importante que usaremos es la **función de probabilidad**
 
 $$
-P : \mathcal{A} \longrightarrow [0,1],
+P : \mathcal{F} \longrightarrow [0,1],
 $$
 
 La cual cumple con las siguientes propiedades:
@@ -530,7 +531,7 @@ i. $P(\Omega) = 1$.
 
 ii. Si $A_1, A_2, \ldots$ es una sucesión de eventos excluyentes en $\mathcal{A}$
 (esto es, $A_i \cap A_j = \emptyset$ para todo $i \not= j$), tales que la unión 
-pertenece a $\mathcal{A}$, entonces
+pertenece a $\mathcal{F}$, entonces
 
 $$
 P\left( \bigcup_{i = 1}^{\infty} A_i \right) = \sum_{i = 1}^{\infty} P(A_i)
@@ -540,19 +541,19 @@ Algunas propiedades para una función de probabilidad son:
 
 i. $P(\emptyset) = 0$.
 
-ii. Si $A_1, \ldots, A_n$ son mutuamente excluyentes en $\mathcal{A}$, entonces
+ii. Si $A_1, \ldots, A_n$ son mutuamente excluyentes en $\mathcal{F}$, entonces
 
 $$
   P(A_1 \cup \ldots \cup A_n) = \sum_{i = 1}^n P(A_i)
 $$
 
-iii. Si $A \in \mathcal{A}$,  entonces 
+iii. Si $A \in \mathcal{F}$,  entonces 
 
 $$
 P(A^c) = 1 - P(A).
 $$
 
-iv. Si $A,B \in \mathcal{A}$, entonces 
+iv. Si $A,B \in \mathcal{F}$, entonces 
 
   - $P(A) = P(A \cap B) + P(A \cap B^c)$
 
@@ -560,15 +561,15 @@ iv. Si $A,B \in \mathcal{A}$, entonces
   
   - $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 
-v. Si $A \subset B \in \mathcal{A}$, entonces $P(A) \leq P(B)$.
+v. Si $A \subset B \in \mathcal{F}$, entonces $P(A) \leq P(B)$.
 
-vi. (*Desigualdad de Boole*) Si $A_1, \ldots, A_n \in \mathcal{A}$, entonces
+vi. (*Desigualdad de Boole*) Si $A_1, \ldots, A_n \in \mathcal{F}$, entonces
 
 $$
 P(A_1 \cup \ldots \cup A_n) \leq \sum_{i = 1}^n P(A_i)
 $$
 
-Por lo que un **espacio de probabilidad** se define como una tripleta $(\Omega, \mathcal{A}, P(\cdot))$
+Por lo que un **espacio de probabilidad** se define como una tripleta $(\Omega, \mathcal{F}, P(\cdot))$
 
 Una **variable aleatoria** es una función
 
@@ -576,7 +577,7 @@ $$
 X: \Omega \longrightarrow \mathbb{R},
 $$
 
-tal que los conjuntos $A_r = \{ \omega \in \Omega | X(\omega) \leq r \} \in \mathcal{A}$ para todo
+tal que los conjuntos $A_r = \{ \omega \in \Omega | X(\omega) \leq r \} \in \mathcal{F}$ para todo
 $r \in \mathbb{R}$.
 
 Esto permite definir la **función de distribución acumulada** de la 
@@ -733,8 +734,92 @@ $$
 Var(X) = E(X^2) - (E(X))^2
 $$
 
+**Teorema:** Si $X$ es una variable aleatoria y $g$ una función no negativa,
+ entonces para todo $k$ positivo,
+ 
+ $$
+  P(g(X) \geq k) \leq \frac{E(g(X))}{k}
+ $$
 
-## Funciones de Momentos y Verosimilitud
+**Corollario:** Si $X$ es una variable aleatoria, entonces para todo
+$t > 0$
+
+$$
+P(|X - E(X)| \geq t) \leq \frac{Var(X)}{t^2}
+$$
+
+### Ejemplos de distribuciones discretas
+
+La **distribución de Bernoulli**, mide la probabilidad de que ocurra o no una situación y/o experimento.
+
+Si denotamos por $p$ a la probabilidad de que ocurra el evento, entonces
+
+$$
+f(x) = p^x (1 - p)^{1-x}, \text{ con  } x \in \{0, 1\}
+$$
+
+Note que la variable aleatoria $X$ sólo puede tomar los valores $0,1$, 
+lo que limita la valuación de la función de distribución. En este caso, la notación 
+que usaremos es
+
+$$
+ X \sim Bernoulli(p)
+$$
+
+Algunos ejemplos más específicos son los siguientes:
+
+  - Verficar si un producto tiene defectos o no.
+  - Lanzar una moneda y observar cara o no.
+  - Lanzar un dado y ver si cae 4 o no.
+  - Verificar si llueve o no en un día específico.
+  
+Note que en todos los ejemplos, el principal valor (parámetro) que debemos 
+tener en cada problema es la probabilidad $p$. 
+
+Por lo que la media o esperanza de una variable aleatoria $X$ con distribución de 
+Bernoulli, es
+
+$$
+E(X) = 0 \cdot (1-p) + 1 \cdot p = p
+$$
+
+De manera similar, la varianza de $X$ es
+
+$$
+\begin{array}{rl}
+Var(X) &= (0 - p)^2 \cdot (1 - p) + (1 - p)^2 \cdot p \\
+       &= p(1 - p)(p + 1 - p) \\
+       &= p(1 - p)
+\end{array}
+$$
+
+La **distribución binomial** mide cuántas veces obtenemos éxito al repetir $n$ 
+veces una distribución de Bernoulli. 
+
+En este caso, los parámetros necesarios será la probabilidad de éxito de cada 
+experimento Bernoulli, $p$, y el número de repeticiones $n$. 
+
+
+
+### Ejemplos de distribuciones continuas
+
+
+### Momentos y Funciones generadoras 
+
+Para una variable aleatoria $X$, el **momento** de grado $r$ se define por
+
+$$
+  \mu'_r = E(X^r)
+$$
+
+El momento central de grado $r$ es
+
+$$
+\mu_r = E((X - E(X))^r)
+$$
+
+
+## Verosimilitud
 
 ## Estimación por intervalos
 

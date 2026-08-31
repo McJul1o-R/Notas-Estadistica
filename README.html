@@ -764,7 +764,8 @@ conceptos y notación básica.</p>
 <p>Un <strong>experimento aleatorio</strong> es un proceso que no se
 controlan sus resultados.</p>
 <p>Un <strong>espacio muestral</strong> es el conjunto de todos los
-posibles resultados de un experimento. Su notación es <span class="math display">\[
+posibles resultados de un experimento. Su notación es</p>
+<p><span class="math display">\[
 \Omega
 \]</span></p>
 <p>Un <strong>Evento</strong> es un subconjunto de <span class="math inline">\(\Omega\)</span>.</p>
@@ -828,34 +829,34 @@ I_A(w) = \begin{cases}
           \end{cases}
 \]</span></p>
 <p>Algunas propiedades que se cumplen son las siguientes</p>
-<p><strong>Proposición:</strong> Consideremos un conjunto <span class="math inline">\(\Omega\)</span> y <span class="math inline">\(\mathcal{A}\)</span> cualquier colección de
+<p><strong>Proposición:</strong> Consideremos un conjunto <span class="math inline">\(\Omega\)</span> y <span class="math inline">\(\mathcal{F}\)</span> cualquier familia de
 subconjuntos de <span class="math inline">\(\Omega\)</span>.</p>
 <ol style="list-style-type: lower-roman">
 <li><p><span class="math inline">\(I_A(w) = 1 - I_{A^c}(w)\)</span> para
 cualquier <span class="math inline">\(A \in
-\mathcal{A}\)</span>.</p></li>
+\mathcal{F}\)</span>.</p></li>
 <li><p><span class="math inline">\(I_{A_1 \cap A_2 \cap \ldots \cap
 A_n}(w) = I_{A_1}(w) \cdot I_{A_1}(w) \cdots I_{A_n}(w)\)</span>, para
 <span class="math inline">\(A_1, \ldots, A_n \in
-\mathcal{A}\)</span>.</p></li>
+\mathcal{F}\)</span>.</p></li>
 <li><p><span class="math inline">\(I_{A_1 \cup A_2 \cup \ldots \cup
 A_n}(w) = \max(I_{A_1}(w), \ldots, I_{A_n}(w))\)</span>, para <span class="math inline">\(A_1, \ldots, A_n \in
-\mathcal{A}\)</span>.</p></li>
+\mathcal{F}\)</span>.</p></li>
 <li><p><span class="math inline">\(I^2_{A}(w) = I_{A}(w)\)</span>, para
 cualquier <span class="math inline">\(A \in
-\mathcal{A}\)</span>.</p></li>
+\mathcal{F}\)</span>.</p></li>
 </ol>
-<p>Para un álgebra de eventos <span class="math inline">\(\mathcal{A}\)</span>, una función importante que
+<p>Para un álgebra de eventos <span class="math inline">\(\mathcal{F}\)</span>, una función importante que
 usaremos es la <strong>función de probabilidad</strong></p>
 <p><span class="math display">\[
-P : \mathcal{A} \longrightarrow [0,1],
+P : \mathcal{F} \longrightarrow [0,1],
 \]</span></p>
 <p>La cual cumple con las siguientes propiedades:</p>
 <ol style="list-style-type: lower-roman">
 <li><p><span class="math inline">\(P(\Omega) = 1\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(A_1, A_2, \ldots\)</span> es una
 sucesión de eventos excluyentes en <span class="math inline">\(\mathcal{A}\)</span> (esto es, <span class="math inline">\(A_i \cap A_j = \emptyset\)</span> para todo <span class="math inline">\(i \not= j\)</span>), tales que la unión pertenece
-a <span class="math inline">\(\mathcal{A}\)</span>, entonces</p></li>
+a <span class="math inline">\(\mathcal{F}\)</span>, entonces</p></li>
 </ol>
 <p><span class="math display">\[
 P\left( \bigcup_{i = 1}^{\infty} A_i \right) = \sum_{i = 1}^{\infty}
@@ -865,20 +866,20 @@ P(A_i)
 <ol style="list-style-type: lower-roman">
 <li><p><span class="math inline">\(P(\emptyset) = 0\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(A_1, \ldots, A_n\)</span> son
-mutuamente excluyentes en <span class="math inline">\(\mathcal{A}\)</span>, entonces</p></li>
+mutuamente excluyentes en <span class="math inline">\(\mathcal{F}\)</span>, entonces</p></li>
 </ol>
 <p><span class="math display">\[
   P(A_1 \cup \ldots \cup A_n) = \sum_{i = 1}^n P(A_i)
 \]</span></p>
 <ol start="3" style="list-style-type: lower-roman">
-<li>Si <span class="math inline">\(A \in \mathcal{A}\)</span>,
+<li>Si <span class="math inline">\(A \in \mathcal{F}\)</span>,
 entonces</li>
 </ol>
 <p><span class="math display">\[
 P(A^c) = 1 - P(A).
 \]</span></p>
 <ol start="4" style="list-style-type: lower-roman">
-<li>Si <span class="math inline">\(A,B \in \mathcal{A}\)</span>,
+<li>Si <span class="math inline">\(A,B \in \mathcal{F}\)</span>,
 entonces</li>
 </ol>
 <ul>
@@ -890,25 +891,25 @@ B^c)\)</span></p></li>
 B)\)</span></p></li>
 </ul>
 <ol start="22" style="list-style-type: lower-alpha">
-<li>Si <span class="math inline">\(A \subset B \in \mathcal{A}\)</span>,
+<li>Si <span class="math inline">\(A \subset B \in \mathcal{F}\)</span>,
 entonces <span class="math inline">\(P(A) \leq P(B)\)</span>.</li>
 </ol>
 <ol start="6" style="list-style-type: lower-roman">
 <li>(<em>Desigualdad de Boole</em>) Si <span class="math inline">\(A_1,
-\ldots, A_n \in \mathcal{A}\)</span>, entonces</li>
+\ldots, A_n \in \mathcal{F}\)</span>, entonces</li>
 </ol>
 <p><span class="math display">\[
 P(A_1 \cup \ldots \cup A_n) \leq \sum_{i = 1}^n P(A_i)
 \]</span></p>
 <p>Por lo que un <strong>espacio de probabilidad</strong> se define como
-una tripleta <span class="math inline">\((\Omega, \mathcal{A},
+una tripleta <span class="math inline">\((\Omega, \mathcal{F},
 P(\cdot))\)</span></p>
 <p>Una <strong>variable aleatoria</strong> es una función</p>
 <p><span class="math display">\[
 X: \Omega \longrightarrow \mathbb{R},
 \]</span></p>
 <p>tal que los conjuntos <span class="math inline">\(A_r = \{ \omega \in
-\Omega | X(\omega) \leq r \} \in \mathcal{A}\)</span> para todo <span class="math inline">\(r \in \mathbb{R}\)</span>.</p>
+\Omega | X(\omega) \leq r \} \in \mathcal{F}\)</span> para todo <span class="math inline">\(r \in \mathbb{R}\)</span>.</p>
 <p>Esto permite definir la <strong>función de distribución
 acumulada</strong> de la variable aleatoria <span class="math inline">\(X\)</span>, como</p>
 <p><span class="math display">\[
@@ -1043,10 +1044,81 @@ es una variable aleatoria tal que <span class="math inline">\(E(X^2)\)</span> ex
 <p><span class="math display">\[
 Var(X) = E(X^2) - (E(X))^2
 \]</span></p>
+<p><strong>Teorema:</strong> Si <span class="math inline">\(X\)</span>
+es una variable aleatoria y <span class="math inline">\(g\)</span> una
+función no negativa, entonces para todo <span class="math inline">\(k\)</span> positivo,</p>
+<p><span class="math display">\[
+  P(g(X) \geq k) \leq \frac{E(g(X))}{k}
+\]</span></p>
+<p><strong>Corollario:</strong> Si <span class="math inline">\(X\)</span> es una variable aleatoria, entonces
+para todo <span class="math inline">\(t &gt; 0\)</span></p>
+<p><span class="math display">\[
+P(|X - E(X)| \geq t) \leq \frac{Var(X)}{t^2}
+\]</span></p>
+</div>
+<div id="ejemplos-de-distribuciones-discretas" class="section level3">
+<h3>Ejemplos de distribuciones discretas</h3>
+<p>La <strong>distribución de Bernoulli</strong>, mide la probabilidad
+de que ocurra o no una situación y/o experimento.</p>
+<p>Si denotamos por <span class="math inline">\(p\)</span> a la
+probabilidad de que ocurra el evento, entonces</p>
+<p><span class="math display">\[
+f(x) = p^x (1 - p)^{1-x}, \text{ con  } x \in \{0, 1\}
+\]</span></p>
+<p>Note que la variable aleatoria <span class="math inline">\(X\)</span>
+sólo puede tomar los valores <span class="math inline">\(0,1\)</span>,
+lo que limita la valuación de la función de distribución. En este caso,
+la notación que usaremos es</p>
+<p><span class="math display">\[
+X \sim Bernoulli(p)
+\]</span></p>
+<p>Algunos ejemplos más específicos son los siguientes:</p>
+<ul>
+<li>Verficar si un producto tiene defectos o no.</li>
+<li>Lanzar una moneda y observar cara o no.</li>
+<li>Lanzar un dado y ver si cae 4 o no.</li>
+<li>Verificar si llueve o no en un día específico.</li>
+</ul>
+<p>Note que en todos los ejemplos, el principal valor (parámetro) que
+debemos tener en cada problema es la probabilidad <span class="math inline">\(p\)</span>.</p>
+<p>Por lo que la media o esperanza de una variable aleatoria <span class="math inline">\(X\)</span> con distribución de Bernoulli, es</p>
+<p><span class="math display">\[
+E(X) = 0 \cdot (1-p) + 1 \cdot p = p
+\]</span></p>
+<p>De manera similar, la varianza de <span class="math inline">\(X\)</span> es</p>
+<p><span class="math display">\[
+\begin{array}{rl}
+Var(X) &amp;= (0 - p)^2 \cdot (1 - p) + (1 - p)^2 \cdot p \\
+       &amp;= p(1 - p)(p + 1 - p) \\
+       &amp;= p(1 - p)
+\end{array}
+\]</span></p>
+<p>La <strong>distribución binomial</strong> mide cuántas veces
+obtenemos éxito al repetir <span class="math inline">\(n\)</span> veces
+una distribución de Bernoulli.</p>
+<p>En este caso, los parámetros necesarios será la probabilidad de éxito
+de cada experimento Bernoulli, <span class="math inline">\(p\)</span>, y
+el número de repeticiones <span class="math inline">\(n\)</span>.</p>
+</div>
+<div id="ejemplos-de-distribuciones-continuas" class="section level3">
+<h3>Ejemplos de distribuciones continuas</h3>
+</div>
+<div id="momentos-y-funciones-generadoras" class="section level3">
+<h3>Momentos y Funciones generadoras</h3>
+<p>Para una variable aleatoria <span class="math inline">\(X\)</span>,
+el <strong>momento</strong> de grado <span class="math inline">\(r\)</span> se define por</p>
+<p><span class="math display">\[
+  \mu&#39;_r = E(X^r)
+\]</span></p>
+<p>El momento central de grado <span class="math inline">\(r\)</span>
+es</p>
+<p><span class="math display">\[
+\mu_r = E((X - E(X))^r)
+\]</span></p>
 </div>
 </div>
-<div id="funciones-de-momentos-y-verosimilitud" class="section level2">
-<h2>Funciones de Momentos y Verosimilitud</h2>
+<div id="verosimilitud" class="section level2">
+<h2>Verosimilitud</h2>
 </div>
 <div id="estimación-por-intervalos" class="section level2">
 <h2>Estimación por intervalos</h2>
