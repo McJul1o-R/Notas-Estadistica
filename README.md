@@ -407,7 +407,7 @@ library(quantmod)
 
 Continuamos con los procesos de extracción de precios aquí
 
-[Acciones de la bolsa de valores](Rmarkdowns/Acciones.rmd)
+[Acciones de la bolsa de valores](Rmarkdowns/Acciones.html)
 
 ### Actividad
 
