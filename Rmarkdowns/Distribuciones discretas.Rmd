@@ -1,0 +1,151 @@
+---
+title: "Distribuciones discretas"
+author: "Julio C. Magaña-Cáceres"
+date: "2026-09-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Distribución binomial.
+
+Verificar piezas defectuosas, al elegir 10 piezas, sabiendo que la probabilidad de una defectuosa es 0.15
+
+$$
+X \sim Binom(10,0.15)
+$$
+```{r}
+n = 10
+p = 0.15
+```
+
+a) Calcular la probabilidad de obtener exactamente 3 piezas defectuosas.
+
+$$
+f(3) = P(X = 3) 
+$$
+```{r}
+dbinom(x = 3, size = n, prob = p)
+```
+b) Probabilidad de obtener a lo más 3 piezas defectuosas. 
+
+$$
+P(X \leq 3) = P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3)
+$$
+```{r}
+pbinom(q = 3, size = n, prob = p)
+```
+```{r}
+dbinom(0,n,p) + dbinom(1,n,p) + dbinom(2,n,p) + dbinom(3,n,p)
+```
+c) Probabilidad de obtener  más de 3 piezas defectuosas. 
+
+$$
+P(X > 3) = 1 - P(X \leq 3)
+$$
+```{r}
+1 - pbinom(3, n, p)
+```
+```{r}
+pbinom(3,n,p,lower.tail = F)
+```
+d) Calcula la probabilidad de obtener al menos 5 errores pero menos de 8.
+
+$$
+P(5 \leq X < 8) = P(X = 5) + P(X = 6) + P(X = 7)
+$$
+```{r}
+pbinom(q = 7, n,p) - pbinom(4,n,p)
+```
+```{r}
+dbinom(5,n,p) + dbinom(6,n,p) + dbinom(7,n,p)
+```
+e) Probabilidad de al menos 3.
+
+$$
+P(X \geq 3) = 1 - P(X < 3) = 1 - P(X \leq 2)
+$$
+```{r}
+1 - pbinom(2,n,p)
+```
+```{r}
+pbinom(2,n,p,lower.tail = F)
+```
+## Distribución de Poisson
+
+En promedio llegan 10 autos cada hora en un autolavado. 
+
+a) Calcula la probabilidad de que lleguen 12 autos en una hora.
+
+$$
+P(X = 12)
+$$
+```{r}
+dpois(x = 12, lambda = 10)
+```
+b) Probabilidad de que lleguen 12 autos en 30 minutos.
+
+```{r}
+dpois(x = 12, lambda = 5)
+```
+c) Probabilidad de que lleguen a lo más 6 autos en una hora.
+
+$$
+P(X \leq 6)
+$$
+```{r}
+ppois(q = 6, lambda = 10)
+```
+## Distribución geométrica
+
+La probabilidad de elegir una pieza defectuosa, en un intento, es de 0.15. 
+
+a) La probabilidad de elegir una pieza defectuosa en el 4° intento.
+
+$$
+P(X = 3)
+$$
+```{r}
+dgeom(x = 3,prob = 0.15)
+```
+b) Probabilidad de obtener una pieza defetuosa en a lo más 4 intentos.
+
+$$
+P(X \leq 3)
+$$
+```{r}
+pgeom(q = 3, prob = 0.15)
+```
+## Distribución hipergeométrica
+
+De 100 piezas, 30 son defectuosas y  tomamos una muestra de 20. 
+
+a) Calcula la probabilidad de obtener 6 piezas defectuosas en la muestra.
+
+$$
+P(X = 6)
+$$
+```{r}
+m = 30
+n = 70
+k = 20
+```
+
+```{r}
+dhyper(x = 6, m,n,k)
+```
+a) Calcula la probabilidad de obtener a los más 6 piezas defectuosas en la muestra.
+
+```{r}
+phyper(q = 6, m,n,k)
+```
+
+Recordar que 
+
+m = Número de éxitos.
+
+n = Número de fracasos.
+
+k = tamaño de muestra.

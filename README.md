@@ -828,6 +828,22 @@ Algunos ejemplos:
 
  - Lanzar una moneda 10 veces y ver cuántas caras aparecen.
  - Revisar 20 piezas y contar cuántas piezas defectuosas aparecen.
+ 
+Para encontrar valores específicos de la función de probabilidad $f$, 
+para un valor $x$, podemos utilizar Rstudio con el código
+
+```r
+dbinom(x,size = n,prob = p)
+```
+
+Notemos que una distribución de Bernoulli se puede calcular con una
+distribución binomial con $n=1$. Esto es,
+
+$$
+X \sim Bernoulli(p) \sim Binom(1,p)
+$$
+
+Por lo tanto, podemos calcula en Rstudio sus valores con esta función.
 
 La **distribución de Poisson** mide la probabilidad de obtener el número de 
 ocurrencias en un intervalo determinado (por lo general es tiempo). 
@@ -851,11 +867,18 @@ Algunos ejemplo para la distribución de Poisson son:
  - Número de aviones que llegan a un aeropuerto en un día.
  - Errores encontrados en un cable de 10 metros.
  
+Para encontrar valores específicos de la función de probabilidad $f$, 
+para un valor $x$, podemos utilizar Rstudio con el código
+
+```r
+dpois(x,lambda)
+```
+
 La **distribución geométrica** mide las repeticiones necesarias 
 para obtener el primer éxito.
 
 $$
-f(x) = p (1- p)^{x - 1}
+f(x) = p (1- p)^{x}
 $$
 
 Para $X$ el número de fracasos, antes de obtener el primer éxito,
@@ -863,6 +886,13 @@ Para $X$ el número de fracasos, antes de obtener el primer éxito,
 $$
 X \sim Geom(p) 
 $$
+
+Para encontrar valores específicos de la función de probabilidad $f$, 
+para un valor $x$, podemos utilizar Rstudio con el código
+
+```r
+dgeom(x, prob = p)
+```
 
 La **distribución hipergeométrica** calcula el número de éxitos que 
 hay en una muestra elegida sin reemplazo. 
@@ -877,7 +907,12 @@ $$
 X \sim Hyper(m,n,k)
 $$
 
+Para encontrar valores específicos de la función de probabilidad $f$, 
+para un valor $x$, podemos utilizar Rstudio con el código
 
+```r
+dhyper(x, m, n, k)
+```
 
 ### Ejemplos de distribuciones continuas
 
