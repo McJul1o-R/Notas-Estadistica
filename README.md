@@ -810,6 +810,73 @@ veces una distribución de Bernoulli.
 En este caso, los parámetros necesarios será la probabilidad de éxito de cada 
 experimento Bernoulli, $p$, y el número de repeticiones $n$. 
 
+Por lo que la función de densidad queda como
+
+$$
+  f(x) = \left( \matrix{ n \\ x} \right) p^{x} (1-p)^{n-x}
+$$
+
+La notación que usaremos para la variable aleatoria $X$ es
+
+$$
+X \sim Binom(n,p)
+$$
+
+Recuerda que los valores que puede tomar $X$ son $0,1, \ldots, n$.
+
+Algunos ejemplos:
+
+ - Lanzar una moneda 10 veces y ver cuántas caras aparecen.
+ - Revisar 20 piezas y contar cuántas piezas defectuosas aparecen.
+
+La **distribución de Poisson** mide la probabilidad de obtener el número de 
+ocurrencias en un intervalo determinado (por lo general es tiempo). 
+
+Si $\lambda$ denota el promedio de ocurrencias en el intervalo dado, 
+entonces $E(X) = \lambda$ y
+
+$$
+f(x) = \frac{\lambda^{x} e^{-\lambda}}{x!}
+$$
+
+La notación que usaremos en la variable aleatoria es
+
+$$
+X \sim Pois(\lambda)
+$$
+
+Algunos ejemplo para la distribución de Poisson son:
+
+ - Personas que llegan a un cajero automático en 1 hora.
+ - Número de aviones que llegan a un aeropuerto en un día.
+ - Errores encontrados en un cable de 10 metros.
+ 
+La **distribución geométrica** mide las repeticiones necesarias 
+para obtener el primer éxito.
+
+$$
+f(x) = p (1- p)^{x - 1}
+$$
+
+Para $X$ el número de fracasos, antes de obtener el primer éxito,
+
+$$
+X \sim Geom(p) 
+$$
+
+La **distribución hipergeométrica** calcula el número de éxitos que 
+hay en una muestra elegida sin reemplazo. 
+
+$$
+f(x) = \frac{\left( \matrix{ m \\ x} \right)\left( \matrix{ n \\ k - x} \right)}{\left( \matrix{ n+m \\ k} \right)}
+$$
+
+donde $m$ son los éxitos en la población, $n$ los fracasos en la población y $k$ la muestra.
+
+$$
+X \sim Hyper(m,n,k)
+$$
+
 
 
 ### Ejemplos de distribuciones continuas

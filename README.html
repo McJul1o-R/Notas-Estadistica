@@ -1106,6 +1106,61 @@ una distribución de Bernoulli.</p>
 <p>En este caso, los parámetros necesarios será la probabilidad de éxito
 de cada experimento Bernoulli, <span class="math inline">\(p\)</span>, y
 el número de repeticiones <span class="math inline">\(n\)</span>.</p>
+<p>Por lo que la función de densidad queda como</p>
+<p><span class="math display">\[
+  f(x) = \left( \matrix{ n \\ x} \right) p^{x} (1-p)^{n-x}
+\]</span></p>
+<p>La notación que usaremos para la variable aleatoria <span class="math inline">\(X\)</span> es</p>
+<p><span class="math display">\[
+X \sim Binom(n,p)
+\]</span></p>
+<p>Recuerda que los valores que puede tomar <span class="math inline">\(X\)</span> son <span class="math inline">\(0,1,
+\ldots, n\)</span>.</p>
+<p>Algunos ejemplos:</p>
+<ul>
+<li>Lanzar una moneda 10 veces y ver cuántas caras aparecen.</li>
+<li>Revisar 20 piezas y contar cuántas piezas defectuosas aparecen.</li>
+</ul>
+<p>La <strong>distribución de Poisson</strong> mide la probabilidad de
+obtener el número de ocurrencias en un intervalo determinado (por lo
+general es tiempo).</p>
+<p>Si <span class="math inline">\(\lambda\)</span> denota el promedio de
+ocurrencias en el intervalo dado, entonces <span class="math inline">\(E(X) = \lambda\)</span> y</p>
+<p><span class="math display">\[
+f(x) = \frac{\lambda^{x} e^{-\lambda}}{x!}
+\]</span></p>
+<p>La notación que usaremos en la variable aleatoria es</p>
+<p><span class="math display">\[
+X \sim Pois(\lambda)
+\]</span></p>
+<p>Algunos ejemplo para la distribución de Poisson son:</p>
+<ul>
+<li>Personas que llegan a un cajero automático en 1 hora.</li>
+<li>Número de aviones que llegan a un aeropuerto en un día.</li>
+<li>Errores encontrados en un cable de 10 metros.</li>
+</ul>
+<p>La <strong>distribución geométrica</strong> mide las repeticiones
+necesarias para obtener el primer éxito.</p>
+<p><span class="math display">\[
+f(x) = p (1- p)^{x - 1}
+\]</span></p>
+<p>Para <span class="math inline">\(X\)</span> el número de fracasos,
+antes de obtener el primer éxito,</p>
+<p><span class="math display">\[
+X \sim Geom(p)
+\]</span></p>
+<p>La <strong>distribución hipergeométrica</strong> calcula el número de
+éxitos que hay en una muestra elegida sin reemplazo.</p>
+<p><span class="math display">\[
+f(x) = \frac{\left( \matrix{ m \\ x} \right)\left( \matrix{ n \\ k - x}
+\right)}{\left( \matrix{ n+m \\ k} \right)}
+\]</span></p>
+<p>donde <span class="math inline">\(m\)</span> los éxitos de la
+población, <span class="math inline">\(n\)</span> los fracasos en la
+población y <span class="math inline">\(k\)</span> la muestra.</p>
+<p><span class="math display">\[
+X \sim Hyper(m,n,k)
+\]</span></p>
 </div>
 <div id="ejemplos-de-distribuciones-continuas" class="section level3">
 <h3>Ejemplos de distribuciones continuas</h3>
