@@ -1188,6 +1188,31 @@ código</p>
 </div>
 <div id="ejemplos-de-distribuciones-continuas" class="section level3">
 <h3>Ejemplos de distribuciones continuas</h3>
+<ul>
+<li>Uniforme</li>
+</ul>
+<p><span class="math display">\[
+f(x) = \frac{1}{b - a} I_{(a,b)}(x)
+\]</span></p>
+<p><span class="math display">\[
+P(X \leq x) = F(x)
+\]</span></p>
+<pre class="r"><code>punif(x, a, b)</code></pre>
+<ul>
+<li>Exponencial</li>
+</ul>
+<p><span class="math display">\[
+f(x) = \lambda e^{-\lambda x} I_{(0, \infty)}
+\]</span></p>
+<pre class="r"><code>pexp(x,lambda)</code></pre>
+<ul>
+<li>Normal</li>
+<li>Gamma</li>
+<li>Weibull</li>
+<li>t</li>
+<li>F</li>
+<li>Ji</li>
+</ul>
 </div>
 <div id="momentos-y-funciones-generadoras" class="section level3">
 <h3>Momentos y Funciones generadoras</h3>

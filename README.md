@@ -916,6 +916,36 @@ dhyper(x, m, n, k)
 
 ### Ejemplos de distribuciones continuas
 
+- Uniforme
+
+$$
+f(x) = \frac{1}{b - a} I_{(a,b)}(x)
+$$
+
+```r
+punif(x, a, b)
+```
+
+- Exponencial
+
+$$
+f(x) = \lambda e^{-\lambda x} I_{(0, \infty)}
+$$
+
+```r
+pexp(x,lambda)
+```
+
+- Normal
+
+
+
+- Weibull
+- Gamma
+- t
+- F
+- Ji
+
 
 ### Momentos y Funciones generadoras 
 
