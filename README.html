@@ -1189,30 +1189,124 @@ código</p>
 <div id="ejemplos-de-distribuciones-continuas" class="section level3">
 <h3>Ejemplos de distribuciones continuas</h3>
 <ul>
-<li>Uniforme</li>
+<li>Uniforme, <span class="math inline">\(X \sim Unif(a,b)\)</span></li>
 </ul>
 <p><span class="math display">\[
 f(x) = \frac{1}{b - a} I_{(a,b)}(x)
 \]</span></p>
-<p><span class="math display">\[
-P(X \leq x) = F(x)
-\]</span></p>
 <pre class="r"><code>punif(x, a, b)</code></pre>
 <ul>
-<li>Exponencial</li>
+<li>Exponencial, <span class="math inline">\(X \sim
+Exp(\lambda)\)</span></li>
 </ul>
 <p><span class="math display">\[
 f(x) = \lambda e^{-\lambda x} I_{(0, \infty)}
 \]</span></p>
 <pre class="r"><code>pexp(x,lambda)</code></pre>
 <ul>
-<li>Normal</li>
-<li>Gamma</li>
-<li>Weibull</li>
-<li>t</li>
-<li>F</li>
-<li>Ji</li>
+<li>Normal, <span class="math inline">\(X \sim N(\mu,
+\sigma)\)</span></li>
 </ul>
+<p><span class="math display">\[
+f(x) = \frac{1}{\sqrt{2\pi\sigma}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+\]</span></p>
+<pre class="r"><code>pnorm(x, mean = mu, sd = sigma)</code></pre>
+<ul>
+<li>Weibull, <span class="math inline">\(X \sim
+Weibull(a,b)\)</span></li>
+</ul>
+<p><span class="math display">\[
+f(x) = abx^{a-1}e^{-bx^a} I_{(0,\infty)}(x)
+\]</span></p>
+<pre class="r"><code>pweibull(q = 0.8, shape = a,scale = b)</code></pre>
+<ul>
+<li>Gamma, <span class="math inline">\(X \sim Gamma(p,a)\)</span></li>
+</ul>
+<p><span class="math display">\[
+f(x) = \frac{a^p}{\Gamma(p)}x^{p-1}e^{-ax}I_{(0,\infty)}(x)
+\]</span></p>
+<pre class="r"><code>pgamma(q = x,shape = p, rate = a)</code></pre>
+<ul>
+<li>t, <span class="math inline">\(X \sim t_k\)</span></li>
+</ul>
+<p><span class="math display">\[
+f(x) =
+\frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)}
+\left( \frac{1}{\sqrt{k \pi}} \right) \left( 1 + \frac{x^2}{k}
+\right)^{-\frac{k+1}{2}}
+\]</span></p>
+<pre class="r"><code>  pt(x, df = k)</code></pre>
+<ul>
+<li>F, <span class="math inline">\(X \sim F_{m,n}\)</span></li>
+</ul>
+<p><span class="math display">\[
+f(x) = \frac{\Gamma\left( \frac{m+n}{2} \right)}{\Gamma\left(
+\frac{m}{2} \right) \Gamma\left( \frac{n}{2} \right)} \left( \frac{m}{n}
+\right)^{m/2} \frac{x^{\frac{m-2}{2}}}{\left(1 + \frac{mx}{n}
+\right)^{\frac{m+n}{2}}} I_{(0,\infty)}(x)
+\]</span></p>
+<pre class="r"><code>pf(x, df1 = m, df2 = n)</code></pre>
+<ul>
+<li>Ji-Cuadrada, <span class="math inline">\(X \sim
+\chi^2_{k}\)</span></li>
+</ul>
+<p><span class="math display">\[
+f(x) = \frac{1}{\Gamma(k/2)} \left( \frac{1}{2} \right) x^{(k/2) -
+1}e^{-x/2} I_{(0,\infty)}(x)
+\]</span></p>
+<pre class="r"><code>pchisq(x, df = k)</code></pre>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p><span class="math inline">\(Weibull(1,b) \sim
+Exp(b)\)</span></p></li>
+<li><p><span class="math inline">\(\chi^2_{k} \sim
+Gamma(k/2,1/2)\)</span></p></li>
+<li><p>Si <span class="math inline">\(X_i \sim N(\mu_i,
+\sigma_i)\)</span> para <span class="math inline">\(i = 1, \ldots,
+k\)</span>, entonces</p></li>
+</ul>
+<p><span class="math display">\[
+\sum_{i = 1}^{k} X_i \sim N\left(\sum \mu_i, \sqrt{\sum
+\sigma^2_i}\right)
+\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(X_i \sim N(\mu, \sigma)\)</span> para
+<span class="math inline">\(i = 1, \ldots, k\)</span>, entonces</li>
+</ul>
+<p><span class="math display">\[
+\overline{X} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}} \right)
+\]</span></p>
+<p><span class="math display">\[
+\frac{\overline{X} - \mu}{\sigma/\sqrt{k}} \sim N(0,1)
+\]</span></p>
+<p><span class="math display">\[
+\frac{(k-1)S^2}{\sigma^2} \sim \chi^2_{k-1}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\overline{X} - \mu}{S/\sqrt{k}} \sim t_{k-1}
+\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(Z \sim N(0,1)\)</span> y <span class="math inline">\(U \sim \chi^2_k\)</span>, entonces</li>
+</ul>
+<p><span class="math display">\[
+\frac{Z}{\sqrt{U/k}} \sim t_k
+\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(U_m \sim \chi^2_m\)</span> y <span class="math inline">\(V_n \sim \chi^2_n\)</span>, entonces</li>
+</ul>
+<p><span class="math display">\[
+\frac{U_m/m}{V_n/n} \sim F_{m,n}
+\]</span></p>
+<ul>
+<li>Para dos muestras <span class="math inline">\(X_i \sim N(\mu_X,
+\sigma)\)</span>, con <span class="math inline">\(i = 1, \ldots,
+m\)</span> y <span class="math inline">\(Y_j \sim N(\mu_Y,
+\sigma)\)</span>, con <span class="math inline">\(j = 1, \ldots,
+n\)</span>, tenemos</li>
+</ul>
+<p><span class="math display">\[
+\frac{S^2_X}{S^2_Y} \sim F_{m-1,n-1}
+\]</span></p>
 </div>
 <div id="momentos-y-funciones-generadoras" class="section level3">
 <h3>Momentos y Funciones generadoras</h3>

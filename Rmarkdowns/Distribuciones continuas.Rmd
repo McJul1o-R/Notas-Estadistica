@@ -1,0 +1,50 @@
+---
+title: "Distribuciones continuas"
+author: "Julio C. Magaña-Cáceres"
+date: "2026-09-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Distribución Normal
+
+Datos poblacionales.
+
+## Distribución t
+
+Normalidad y datos muestrales.
+
+## Distribución ji-cuadrada
+
+$$
+\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}
+$$
+
+## Distribución F
+
+Suponiendo normalidad e independencia
+
+## Distribución Gamma
+
+Directa, El tiempo necesario para procesar una tarea se modela mediante
+
+$$ X \sim Gamma(4,0.5). $$
+
+¿Cuál es la probabilidad de que el procesamiento tarde menos de 10 segundos?
+
+## Distribución exponencial
+
+Tiempo entre fallos por unidad de tiempo con tasa de fallo constante.
+
+## Distribución Weibull
+
+El tiempo hasta que un componente de un sistema falla con tasa de riesgo variable, se modela mediante
+
+
+$$
+X \sim Weibull(2,1000),
+$$
+donde el tiempo está expresado en horas. ¿Cuál es la probabilidad de que el componente falle antes de las 500 horas?

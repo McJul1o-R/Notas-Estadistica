@@ -916,7 +916,7 @@ dhyper(x, m, n, k)
 
 ### Ejemplos de distribuciones continuas
 
-- Uniforme
+- Uniforme, $X \sim Unif(a,b)$
 
 $$
 f(x) = \frac{1}{b - a} I_{(a,b)}(x)
@@ -926,7 +926,7 @@ $$
 punif(x, a, b)
 ```
 
-- Exponencial
+- Exponencial, $X \sim Exp(\lambda)$
 
 $$
 f(x) = \lambda e^{-\lambda x} I_{(0, \infty)}
@@ -936,16 +936,114 @@ $$
 pexp(x,lambda)
 ```
 
-- Normal
+- Normal, $X \sim N(\mu, \sigma)$
 
+$$
+f(x) = \frac{1}{\sqrt{2\pi\sigma}} e^{-\frac{(x - \mu)^2}{2\sigma^2}}
+$$
 
+```r
+pnorm(x, mean = mu, sd = sigma)
+```
 
-- Weibull
-- Gamma
-- t
-- F
-- Ji
+- Weibull, $X \sim Weibull(a,b)$
 
+$$
+f(x) = abx^{a-1}e^{-bx^a} I_{(0,\infty)}(x)
+$$
+
+```r
+pweibull(q = 0.8, shape = a,scale = b)
+```
+
+- Gamma, $X \sim Gamma(p,a)$
+
+$$
+f(x) = \frac{a^p}{\Gamma(p)}x^{p-1}e^{-ax}I_{(0,\infty)}(x)
+$$
+
+```r
+pgamma(q = x,shape = p, rate = a)
+```
+
+- t, $X \sim t_k$
+
+$$
+f(x) = \frac{\Gamma\left(\frac{k+1}{2}\right)}{\Gamma\left(\frac{k}{2}\right)} \left( \frac{1}{\sqrt{k \pi}} \right) \left( 1 + \frac{x^2}{k} \right)^{-\frac{k+1}{2}}
+$$
+
+```r
+  pt(x, df = k)
+```
+
+- F, $X \sim F_{m,n}$
+
+$$
+f(x) = \frac{\Gamma\left( \frac{m+n}{2} \right)}{\Gamma\left( \frac{m}{2} \right) \Gamma\left( \frac{n}{2} \right)} \left( \frac{m}{n} \right)^{m/2} \frac{x^{\frac{m-2}{2}}}{\left(1 + \frac{mx}{n} \right)^{\frac{m+n}{2}}} I_{(0,\infty)}(x)
+$$
+
+```r
+pf(x, df1 = m, df2 = n)
+```
+
+- Ji-Cuadrada, $X \sim \chi^2_{k}$
+
+$$
+f(x) = \frac{1}{\Gamma(k/2)} \left( \frac{1}{2} \right) x^{(k/2) - 1}e^{-x/2} I_{(0,\infty)}(x)
+$$
+
+```r
+pchisq(x, df = k)
+```
+
+**Observaciones:**
+
+- $Weibull(1,b) \sim Exp(b)$
+
+- $\chi^2_{k} \sim Gamma(k/2,1/2)$
+
+- Si $X_i \sim N(\mu_i, \sigma_i)$ para $i = 1, \ldots, k$, entonces
+
+$$
+\sum_{i = 1}^{k} X_i \sim N\left(\sum \mu_i, \sqrt{\sum \sigma^2_i}\right)
+$$
+
+- Si $X_i \sim N(\mu, \sigma)$ para $i = 1, \ldots, k$, entonces
+
+$$
+\overline{X} \sim N\left(\mu, \frac{\sigma}{\sqrt{n}} \right)
+$$
+
+$$
+\frac{\overline{X} - \mu}{\sigma/\sqrt{k}} \sim N(0,1)
+$$
+
+$$
+\frac{(k-1)S^2}{\sigma^2} \sim \chi^2_{k-1}
+$$
+
+$$
+\frac{\overline{X} - \mu}{S/\sqrt{k}} \sim t_{k-1}
+$$
+
+- Si $Z \sim N(0,1)$ y $U \sim \chi^2_k$, entonces
+
+$$
+\frac{Z}{\sqrt{U/k}} \sim t_k
+$$
+
+- Si $U_m \sim \chi^2_m$ y $V_n \sim \chi^2_n$, entonces
+
+$$
+\frac{U_m/m}{V_n/n} \sim F_{m,n}
+$$
+
+- Para dos muestras $X_i \sim N(\mu_X, \sigma)$, con $i = 1, \ldots, m$ y 
+$Y_j \sim N(\mu_Y, \sigma)$, con $j = 1, \ldots, n$, tenemos
+
+$$
+\frac{S^2_X}{S^2_Y} \sim F_{m-1,n-1}
+$$
 
 ### Momentos y Funciones generadoras 
 
