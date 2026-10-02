@@ -1320,10 +1320,147 @@ es</p>
 <p><span class="math display">\[
 \mu_r = E((X - E(X))^r)
 \]</span></p>
+<p>Así, <span class="math inline">\(\mu = E(X) = \mu&#39;_1\)</span>.
+Otros ejemplos</p>
+<p><span class="math display">\[
+\mu_1 = E(X - \mu) = E(X) - \mu = 0
+\]</span></p>
+<p><span class="math display">\[
+\mu_2 = Var(X) = E(X^2) - (E(X))^2 = \mu&#39;_2 - \mu^2
+\]</span></p>
+<p>Análogamente, podemos calcular</p>
+<p><span class="math display">\[
+\mu_3 = E((X - \mu)^3) = \mu&#39;_3 - 3\mu \mu&#39;_2 + 2\mu^3
+\]</span></p>
 </div>
 </div>
 <div id="verosimilitud" class="section level2">
 <h2>Verosimilitud</h2>
+<p>La estimación de máxima verosimilitud (<strong>MLE</strong>, Maximum
+Likelihood Estimation) es uno de los métodos fundamentales para estimar
+parámetros desconocidos de una distribución.</p>
+<p>Si tenemos una muestra <span class="math inline">\(X_1, \ldots,
+X_n\)</span> independientes, con una distribución</p>
+<p><span class="math display">\[
+f(x;\theta),
+\]</span></p>
+<p>donde <span class="math inline">\(\theta\)</span> representa un
+parámetro, la <strong>función de verosimilitud</strong> se define
+por</p>
+<p><span class="math display">\[
+L(\theta; x_1, \ldots,x_n) := \prod_{i = 1}^n f(x_i; \theta)
+\]</span></p>
+<p>El <strong>estimador de máxima verosimilitud</strong> es el valor de
+<span class="math inline">\(\theta\)</span> que maximiza esta
+función:</p>
+<p><span class="math display">\[
+\underset{\theta}{\operatorname{arg,max}},
+L(\theta;x_1,\ldots,x_n).
+\]</span></p>
+<p>Sin embargo, trabajar directamente con la verosimilitud puede
+resultar poco conveniente debido a que esta se expresa como un producto
+de muchas probabilidades o densidades. Además, estos productos pueden
+producir valores numéricamente muy pequeños cuando <span class="math inline">\(n\)</span> es grande.</p>
+<p>Por esta razón se introduce la <strong>función de
+log-verosimilitud</strong>, definida como</p>
+<p><span class="math display">\[
+\log L(\theta).
+\]</span></p>
+<p>Al sustituir la expresión de la verosimilitud obtenemos</p>
+<p><span class="math display">\[
+\log\left[
+\prod_{i=1}^{n}f(x_i;\theta)
+\right].
+\]</span></p>
+<p>Utilizando la propiedad del logaritmo</p>
+<p><span class="math display">\[
+\log(ab)=\log(a)+\log(b),
+\]</span></p>
+<p>podemos transformar el producto en una suma:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{n}\log f(x_i;\theta)
+\]</span></p>
+<p>Esta transformación es especialmente útil porque trabajar con sumas
+suele ser algebraicamente y computacionalmente más sencillo que trabajar
+con productos.</p>
+<p><em>¿Por qué podemos maximizar la log-verosimilitud?</em></p>
+<p>La función logaritmo es estrictamente creciente. Por lo tanto, si
+<span class="math inline">\(L(\theta_1)&gt;L(\theta_2)\)</span>,
+entonces</p>
+<p><span class="math display">\[
+\log L(\theta_1)&gt;\log L(\theta_2).
+\]</span></p>
+<p>En consecuencia, el valor de <span class="math inline">\(\theta\)</span> que maximiza la verosimilitud es
+exactamente el mismo que maximiza la log-verosimilitud:</p>
+<p><span class="math display">\[
+\underset{\theta}{\operatorname{arg,max}},\ell(\theta)
+\]</span></p>
+<p>Por tanto, podemos obtener el estimador de máxima verosimilitud
+mediante</p>
+<p><span class="math display">\[
+\underset{\theta}{\operatorname{arg,max}},
+\ell(\theta).
+\]</span></p>
+<p>La log-verosimilitud no modifica el problema estadístico; simplemente
+proporciona una forma más conveniente de trabajar con él.</p>
+<div id="ventajas-de-la-log-verosimilitud" class="section level3">
+<h3>Ventajas de la log-verosimilitud</h3>
+<p>La transformación a log-verosimilitud presenta varias ventajas:</p>
+<ul>
+<li><strong>Convierte productos en sumas.</strong> Esto simplifica
+considerablemente las operaciones algebraicas:</li>
+</ul>
+<p><span class="math display">\[
+\log\left(\prod_{i=1}^n f(x_i;\theta)\right)
+=
+\sum_{i=1}^n\log f(x_i;\theta).
+\]</span></p>
+<ul>
+<li><strong>Facilita la derivación.</strong> Para encontrar el máximo,
+frecuentemente derivamos la función de log-verosimilitud:</li>
+</ul>
+<p><span class="math display">\[
+\frac{d}{d\theta}\ell(\theta)=0.
+\]</span></p>
+<ul>
+<li><p><strong>Mejora la estabilidad numérica.</strong> Cuando <span class="math inline">\(n\)</span> es grande, el producto de muchas
+probabilidades o densidades puede ser extremadamente pequeño y producir
+problemas numéricos. La suma de sus logaritmos es mucho más manejable
+computacionalmente.</p></li>
+<li><p><strong>Facilita el análisis estadístico.</strong> Las derivadas
+de la log-verosimilitud permiten estudiar propiedades importantes de los
+estimadores de máxima verosimilitud, como la información de Fisher y la
+varianza asintótica.</p></li>
+</ul>
+<p>Por estas razones, aunque el método de máxima verosimilitud se define
+originalmente mediante <span class="math inline">\(L(\theta)\)</span>,
+en la práctica es muy frecuente trabajar directamente con la función de
+log-verosimilitud <span class="math inline">\(\ell(\theta)\)</span>.</p>
+</div>
+<div id="ejemplos-1" class="section level3">
+<h3>Ejemplos</h3>
+<p>Calcula el estimador de máxima verosimilitud de la distribución de
+Beronoulli y su parámetro <span class="math inline">\(p\)</span>.</p>
+<p>En este caso la función de verosimilitud es</p>
+<p><span class="math display">\[
+L(p; x_1, \ldots, x_n) = \prod_{i=1}^n p^{x_i}(1 - p)^{1-x_i}
+\]</span></p>
+<p>Simplificando obtenemos</p>
+<p><span class="math display">\[
+L(p; x_1, \ldots, x_n) = p^{\sum_{i=1}^n x_i} (1 - p)^{n - \sum_{i=1}^n
+x_i}
+\]</span></p>
+<p>Calculemos la función log verosimilitud</p>
+<p><span class="math display">\[
+\ell(p) = \ln(L(p; x_1, \ldots, x_n))
+\]</span></p>
+<p>Obtenemos el MLE derivando</p>
+<p><span class="math display">\[
+\frac{d}{dp} \ell(p) = \left(\sum_{i = 1}^n x_i \right)p^{\sum x_i - 1}
+(1 - p)^{1 - \sum x_i} + \left(1 - \sum_{i = 1}^n x_i \right)p^{\sum
+x_i} (1 - p)^{-\sum x_i} = 0
+\]</span></p>
+</div>
 </div>
 <div id="estimación-por-intervalos" class="section level2">
 <h2>Estimación por intervalos</h2>

@@ -11,33 +11,79 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Distribución Normal
 
-Datos poblacionales.
+Datos poblacionales, como la media y la desviación estándar o varianza. 
+
+Si queremos usar la tabla de distribución normal estándar, necesitamos realizar lo que llamamos estándarización de X, que es calcular
+
+$$
+Z = \frac{X - \mu}{\sigma}
+$$
+
+Ya que $Z \sim N(0,1)$, podemos usar dicha tabla.
+
+Mejor aún, si $X_1, \ldots, X_n$ es una muestra normal, con la misma media $\mu$ y la misma desviación estándar $\sigma$, entonces
+
+$$
+Z = \frac{\overline{X} - \mu}{\sigma/\sqrt{n}} \sim N(0,1)
+$$
 
 ## Distribución t
 
-Normalidad y datos muestrales.
+Normalidad en $X_1, \ldots, X_n$, con la misma media $\mu$ y desviación estándar $\sigma$. Aunque se conoce el tamaño de muestra $n$, no se conoce la desviación estándar poblacional $\sigma$.
+
+Se calcula
+
+$$
+T = \frac{\overline{X} - \mu}{s/\sqrt{n}}
+$$
+ya que $T \sim t_{n-1}$
+
 
 ## Distribución ji-cuadrada
+
+En este caso, consideremos $X_1, \ldots, X_n$ con distribución $N(\mu, \sigma)$ cada una. Por lo que
 
 $$
 \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}
 $$
 
+En este caso, no necesitamos conocer $\mu$, pero si es necesario conocer $\sigma$ y el tamaño de muestra.
+
 ## Distribución F
 
-Suponiendo normalidad e independencia
+Suponiendo $X_1, \ldots, X_n$ y $Y_1, ldots, Y_m$ normalidad e independencia entre $X$ e $Y$.
+
+$$
+\frac{S_X^2}{S^2_Y} \sim F_{n,m}
+$$
 
 ## Distribución Gamma
 
-Directa, El tiempo necesario para procesar una tarea se modela mediante
+Directa, El tiempo necesario para procesar una tarea (no necesariamente la primera) se modela mediante
+
+$$
+X \sim Gamma(p,a)
+$$
+donde $p$ representa la tarea o proceso que deseamos. $a$ modela el promedio en que ocurre.
+
+Si en promedio se realiza 0.5 tareas por segundo,
+¿Cuál es la probabilidad de que el cuarto proceso tarde menos de 10 segundos en ocurrir?
+
+Esto se modela con 
 
 $$ X \sim Gamma(4,0.5). $$
 
-¿Cuál es la probabilidad de que el procesamiento tarde menos de 10 segundos?
+y se pide calcular $P(X < 10)$. 
+
 
 ## Distribución exponencial
 
-Tiempo entre fallos por unidad de tiempo con tasa de fallo constante.
+$X$ mide el tiempo para que ocurra el primer proceso por unidad de tiempo y con tasa $\lambda$ por proceso constante.
+
+$$
+X \sim Exp(\lambda)
+$$
+
 
 ## Distribución Weibull
 
@@ -47,4 +93,6 @@ El tiempo hasta que un componente de un sistema falla con tasa de riesgo variabl
 $$
 X \sim Weibull(2,1000),
 $$
+
 donde el tiempo está expresado en horas. ¿Cuál es la probabilidad de que el componente falle antes de las 500 horas?
+

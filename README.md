@@ -1059,8 +1059,185 @@ $$
 \mu_r = E((X - E(X))^r)
 $$
 
+Así, $\mu = E(X) = \mu'_1$. Otros ejemplos 
+
+$$
+\mu_1 = E(X - \mu) = E(X) - \mu = 0
+$$
+
+$$
+\mu_2 = Var(X) = E(X^2) - (E(X))^2 = \mu'_2 - \mu^2
+$$
+
+Análogamente, podemos calcular 
+
+$$
+\mu_3 = E((X - \mu)^3) = \mu'_3 - 3\mu \mu'_2 + 2\mu^3
+$$
 
 ## Verosimilitud
+
+La estimación de máxima verosimilitud 
+(**MLE**, Maximum Likelihood Estimation) es uno de los 
+métodos fundamentales para estimar parámetros 
+desconocidos de una distribución.
+
+Si tenemos una muestra $X_1, \ldots, X_n$ independientes, con
+una distribución 
+
+$$
+f(x;\theta),
+$$
+
+donde $\theta$ representa un parámetro, la **función de verosimilitud**
+se define por 
+
+$$
+L(\theta; x_1, \ldots,x_n) := \prod_{i = 1}^n f(x_i; \theta)
+$$
+
+El **estimador de máxima verosimilitud** es el valor de $\theta$ 
+que maximiza esta función:
+
+$$
+\underset{\theta}{\operatorname{arg,max}},
+L(\theta;x_1,\ldots,x_n).
+$$
+
+Sin embargo, trabajar directamente con la verosimilitud puede 
+resultar poco conveniente debido a que esta se expresa 
+como un producto de muchas probabilidades o densidades. 
+Además, estos productos pueden producir valores numéricamente 
+muy pequeños cuando $n$ es grande.
+
+Por esta razón se introduce la 
+**función de log-verosimilitud**, definida como
+
+$$
+\log L(\theta).
+$$
+
+Al sustituir la expresión de la verosimilitud obtenemos
+
+$$
+\log\left[
+\prod_{i=1}^{n}f(x_i;\theta)
+\right].
+$$
+
+Utilizando la propiedad del logaritmo
+
+$$
+\log(ab)=\log(a)+\log(b),
+$$
+
+podemos transformar el producto en una suma:
+
+$$
+\sum_{i=1}^{n}\log f(x_i;\theta)
+$$
+
+Esta transformación es especialmente útil porque trabajar 
+con sumas suele ser algebraicamente y computacionalmente 
+más sencillo que trabajar con productos.
+
+*¿Por qué podemos maximizar la log-verosimilitud?*
+
+La función logaritmo es estrictamente creciente. 
+Por lo tanto, si $L(\theta_1)>L(\theta_2)$, entonces
+
+$$
+\log L(\theta_1)>\log L(\theta_2).
+$$
+
+En consecuencia, el valor de $\theta$ que maximiza la 
+verosimilitud es exactamente el mismo que maximiza la 
+log-verosimilitud:
+
+$$
+\underset{\theta}{\operatorname{arg,max}},\ell(\theta)
+$$
+
+Por tanto, podemos obtener el estimador de máxima verosimilitud 
+mediante
+
+$$
+\underset{\theta}{\operatorname{arg,max}},
+\ell(\theta).
+$$
+
+La log-verosimilitud no modifica el problema estadístico; 
+simplemente proporciona una forma más conveniente de 
+trabajar con él.
+
+### Ventajas de la log-verosimilitud
+
+La transformación a log-verosimilitud presenta varias ventajas:
+
+- **Convierte productos en sumas.** 
+Esto simplifica considerablemente las operaciones 
+algebraicas:
+
+$$
+\log\left(\prod_{i=1}^n f(x_i;\theta)\right)
+=
+\sum_{i=1}^n\log f(x_i;\theta).
+$$
+
+- **Facilita la derivación.** 
+Para encontrar el máximo, frecuentemente derivamos 
+la función de log-verosimilitud:
+
+$$
+\frac{d}{d\theta}\ell(\theta)=0.
+$$
+
+- **Mejora la estabilidad numérica.** 
+Cuando $n$ es grande, el producto de muchas 
+probabilidades o densidades puede ser 
+extremadamente pequeño y producir problemas numéricos. 
+La suma de sus logaritmos es mucho más manejable computacionalmente.
+
+- **Facilita el análisis estadístico.** 
+Las derivadas de la log-verosimilitud permiten 
+estudiar propiedades importantes de los estimadores 
+de máxima verosimilitud, como la información de Fisher 
+y la varianza asintótica.
+
+
+Por estas razones, aunque el método de máxima verosimilitud 
+se define originalmente mediante $L(\theta)$, en la 
+práctica es muy frecuente trabajar directamente con la 
+función de log-verosimilitud $\ell(\theta)$.
+
+### Ejemplos
+
+Calcula el estimador de máxima verosimilitud de la distribución
+de Beronoulli y su parámetro $p$.
+
+En este caso la función de verosimilitud es
+
+$$
+L(p; x_1, \ldots, x_n) = \prod_{i=1}^n p^{x_i}(1 - p)^{1-x_i}
+$$
+
+Simplificando obtenemos
+
+$$
+L(p; x_1, \ldots, x_n) = p^{\sum_{i=1}^n x_i} (1 - p)^{n - \sum_{i=1}^n x_i}
+$$
+
+Calculemos la función log verosimilitud
+
+$$
+\ell(p) = \ln(L(p; x_1, \ldots, x_n))
+$$
+
+Obtenemos el MLE derivando 
+
+$$
+\frac{d}{dp} \ell(p) = \left(\sum_{i = 1}^n x_i \right)p^{\sum x_i - 1} (1 - p)^{1 - \sum x_i} + \left(1 - \sum_{i = 1}^n x_i \right)p^{\sum x_i} (1 - p)^{-\sum x_i} = 0
+$$
 
 ## Estimación por intervalos
 
