@@ -1075,10 +1075,122 @@ $$
 \mu_3 = E((X - \mu)^3) = \mu'_3 - 3\mu \mu'_2 + 2\mu^3
 $$
 
+Una función, de gran utilidad, es la **generadora de momentos**, que
+como el nombre lo dice, ayudará a calcular los momentos antes mencionados.
+
+Definimos
+
+$$
+m_X(t) = E(e^{tX})
+$$
+
+Calculando las derivadas respectivas, vemos que 
+
+$$
+\frac{d^r}{dt^r} m_X(0) = E(X^r) = \mu'_r 
+$$
+
+Una propiedad de la función generadora de momentos es 
+que si $X$ y $Y$ son dos variables aleatorias, tales que
+
+$m_X(t) = m_Y(t)$
+
+Para todo $t$ en un intervalo $(-h,h)$ para un $h >0$, entonces
+
+las distribuciones acumuladas son iguales.
+
+### Estimación de parámetros por momentos
+
+Se definen los **momentos muestrales**, respecto al origen, como
+
+$$
+M_k = \frac{1}{n} \sum_{i = 1}^n X^k_i  
+$$
+
+El **método de momentos** para aproximar parámetros se 
+realiza igualando los momentos centrados en el origen con los respectivos
+momentos muestrales. Esto es,
+
+$$
+M_k = \mu'_k
+$$
+
+En particular, si sólo tenemos un parámetro, basta con igualar
+
+$$
+M_1 = \mu'_1.
+$$
+
+Simplificando, obtenemos que 
+
+$$
+\mu = E(X) = M_1 = \overline{X}
+$$
+
+- Si $X \sim Bernoulli(p)$, entonces la aproximación del 
+parámetro $p$ es
+
+$$
+\widehat{p} = \overline{X}
+$$
+
+- Si $X \sim Exp(\lambda)$, entonces
+
+$$
+\frac{1}{\lambda} = \mu = \overline{X}
+$$
+
+Por lo que la aproximación del parámetro $\lambda$ es
+
+$$
+\widehat{\lambda} = \frac{1}{\overline{X}}
+$$
+
+Para dos parámetros, podemos resolver el sistema 
+
+$$
+\begin{array}{rl}
+  M_1 &= \mu'_1 \\
+  M_2 &= \mu'_2
+\end{array}
+$$
+
+- Si $X \sim N(\mu,\sigma^2)$, entonces aproximamos los dos
+parámetros. 
+
+Para $\mu$, vemos que
+
+$$
+\widehat{\mu} = \overline{X}.
+$$
+
+Para el parámetro $\sigma^2$, sustituyendo la segunda ecuación
+de momentos, obtenemos
+
+$$
+M_2 = \mu'_2 = \sigma^2 + \mu^2, 
+$$
+
+Por lo que
+
+$$
+\widehat{\sigma^2} = M_2 - \mu^2 = M_2 - \overline{X}^2
+$$
+
+Simplificando obtenemos dos expresiones,
+
+$$
+\widehat{\sigma^2} = \frac{1}{n} \sum_{i = 1}^n (X_i - \overline{X})^2
+$$
+
+$$
+\widehat{\sigma^2} = \frac{n-1}{n}s^2
+$$
+
 ## Verosimilitud
 
-La estimación de máxima verosimilitud 
-(**MLE**, Maximum Likelihood Estimation) es uno de los 
+La estimación de máxima verosimilitud, **EMV**
+(**MLE**, Maximum Likelihood Estimation, en inglés) es uno de los 
 métodos fundamentales para estimar parámetros 
 desconocidos de una distribución.
 
@@ -1230,13 +1342,19 @@ $$
 Calculemos la función log verosimilitud
 
 $$
-\ell(p) = \ln(L(p; x_1, \ldots, x_n))
+\ell(p) = \ln(L(p; x_1, \ldots, x_n)) = \sum_{i = 1}^n x_i \ln(p) + \left(n - \sum_{i= 1}^n x_i \right) (\ln(1-p))
 $$
 
-Obtenemos el MLE derivando 
+Obtenemos el EMV derivando 
 
 $$
-\frac{d}{dp} \ell(p) = \left(\sum_{i = 1}^n x_i \right)p^{\sum x_i - 1} (1 - p)^{1 - \sum x_i} + \left(1 - \sum_{i = 1}^n x_i \right)p^{\sum x_i} (1 - p)^{-\sum x_i} = 0
+\frac{d}{dp} \ell(p) = \frac{1}{p} \left(\sum_{i = 1}^n x_i \right) - \frac{1}{1-p}\left(n - \sum_{i= 1}^n x_i \right)
+$$
+
+Igualando a cero y despejando $p$, obtenemos que
+
+$$
+\widehat{p} = \frac{1}{n}\sum_{i = 1}^n x_i = \overline{X}
 $$
 
 ## Estimación por intervalos
@@ -1245,7 +1363,8 @@ Recordemos la diferencia entre muestra y población. Para esto revisemos la sigu
 
 ![Diferencia entre muestra y población](imagenes/muestra-poblacion.png)
 
-Recordemos que el objetivo principal de los estadísticos es aproximar los parámetros.
+
+El objetivo principal de los estadísticos es aproximar los parámetros.
 
 
 ## Pruebas de hipótesis
