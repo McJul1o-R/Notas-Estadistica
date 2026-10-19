@@ -1349,6 +1349,19 @@ que</p>
 <p>Para todo <span class="math inline">\(t\)</span> en un intervalo
 <span class="math inline">\((-h,h)\)</span> para un <span class="math inline">\(h &gt;0\)</span>, entonces</p>
 <p>las distribuciones acumuladas son iguales.</p>
+<p><span class="math display">\[
+\begin{array}{ll}
+    \text{Distribución} &amp; FGM \\
+    Bernoulli(p) &amp; (1-p) + e^t p \\
+    Pois(\lambda) &amp; e^{\lambda (e^t - 1)} \\
+    Geom(p) &amp;\displaystyle  \frac{p}{1 + e^t (1-p)} \\
+    &amp; \\ \hline
+    Unif(a,b) &amp; \displaystyle \frac{e^{tb} - e^{ta} }{t (b - a)} \\
+    Exp(\lambda) &amp; \displaystyle \frac{\lambda}{\lambda - t} \\
+    Gamma(p,a) &amp;\displaystyle  \left(\frac{a}{a - t} \right)^p \\
+    N(\mu, \sigma^2) &amp; e^{t\mu + t^2\sigma^2/2} \\
+\end{array}
+\]</span></p>
 </div>
 <div id="estimación-de-parámetros-por-momentos" class="section level3">
 <h3>Estimación de parámetros por momentos</h3>

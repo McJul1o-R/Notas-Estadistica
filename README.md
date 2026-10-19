@@ -1099,6 +1099,20 @@ Para todo $t$ en un intervalo $(-h,h)$ para un $h >0$, entonces
 
 las distribuciones acumuladas son iguales.
 
+$$
+\begin{array}{ll}
+	\text{Distribución} & FGM \\
+	Bernoulli(p) & (1-p) + e^t p \\
+	Pois(\lambda) & e^{\lambda (e^t - 1)} \\
+	Geom(p) &\displaystyle  \frac{p}{1 + e^t (1-p)} \\
+	& \\ \hline
+	Unif(a,b) & \displaystyle \frac{e^{tb} - e^{ta} }{t (b - a)} \\
+	Exp(\lambda) & \displaystyle \frac{\lambda}{\lambda - t} \\
+	Gamma(p,a) &\displaystyle  \left(\frac{a}{a - t} \right)^p \\
+	N(\mu, \sigma^2) & e^{t\mu + t^2\sigma^2/2} \\
+\end{array}
+$$
+
 ### Estimación de parámetros por momentos
 
 Se definen los **momentos muestrales**, respecto al origen, como
