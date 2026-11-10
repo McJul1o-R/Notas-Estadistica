@@ -1103,6 +1103,7 @@ $$
 \begin{array}{ll}
 	\text{Distribución} & FGM \\
 	Bernoulli(p) & (1-p) + e^t p \\
+	Binom(n,p) & ((1- p) + e^t p)^n \\
 	Pois(\lambda) & e^{\lambda (e^t - 1)} \\
 	Geom(p) &\displaystyle  \frac{p}{1 + e^t (1-p)} \\
 	& \\ 
@@ -1226,8 +1227,7 @@ El **estimador de máxima verosimilitud** es el valor de $\theta$
 que maximiza esta función:
 
 $$
-\underset{\theta}{\operatorname{arg,max}},
-L(\theta;x_1,\ldots,x_n).
+\max_{\theta} \{ L(\theta;x_1,\ldots,x_n) \}.
 $$
 
 Sin embargo, trabajar directamente con la verosimilitud puede 

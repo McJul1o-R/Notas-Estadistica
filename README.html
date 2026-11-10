@@ -1353,9 +1353,10 @@ que</p>
 \begin{array}{ll}
     \text{Distribución} &amp; FGM \\
     Bernoulli(p) &amp; (1-p) + e^t p \\
+    Binom(n,p) &amp; ((1- p) + e^t p)^n \\
     Pois(\lambda) &amp; e^{\lambda (e^t - 1)} \\
     Geom(p) &amp;\displaystyle  \frac{p}{1 + e^t (1-p)} \\
-    &amp; \\ \hline
+    &amp; \\
     Unif(a,b) &amp; \displaystyle \frac{e^{tb} - e^{ta} }{t (b - a)} \\
     Exp(\lambda) &amp; \displaystyle \frac{\lambda}{\lambda - t} \\
     Gamma(p,a) &amp;\displaystyle  \left(\frac{a}{a - t} \right)^p \\
@@ -1456,8 +1457,7 @@ L(\theta; x_1, \ldots,x_n) := \prod_{i = 1}^n f(x_i; \theta)
 <span class="math inline">\(\theta\)</span> que maximiza esta
 función:</p>
 <p><span class="math display">\[
-\underset{\theta}{\operatorname{arg,max}},
-L(\theta;x_1,\ldots,x_n).
+\max_{\theta} \{ L(\theta;x_1,\ldots,x_n) \}.
 \]</span></p>
 <p>Sin embargo, trabajar directamente con la verosimilitud puede
 resultar poco conveniente debido a que esta se expresa como un producto
