@@ -1105,7 +1105,7 @@ $$
 	Bernoulli(p) & (1-p) + e^t p \\
 	Pois(\lambda) & e^{\lambda (e^t - 1)} \\
 	Geom(p) &\displaystyle  \frac{p}{1 + e^t (1-p)} \\
-	& \\ \hline
+	& \\ 
 	Unif(a,b) & \displaystyle \frac{e^{tb} - e^{ta} }{t (b - a)} \\
 	Exp(\lambda) & \displaystyle \frac{\lambda}{\lambda - t} \\
 	Gamma(p,a) &\displaystyle  \left(\frac{a}{a - t} \right)^p \\
@@ -1378,7 +1378,8 @@ Recordemos la diferencia entre muestra y población. Para esto revisemos la sigu
 ![Diferencia entre muestra y población](imagenes/muestra-poblacion.png)
 
 
-El objetivo principal de los estadísticos es aproximar los parámetros.
+El objetivo principal de los estadísticos es aproximar los parámetros. Por otro lado,
+¿cómo utilizamos dichas aproximaciones para tomar decisiones acertadas?
 
 
 ## Pruebas de hipótesis
