@@ -1495,14 +1495,10 @@ entonces</p>
 <p>En consecuencia, el valor de <span class="math inline">\(\theta\)</span> que maximiza la verosimilitud es
 exactamente el mismo que maximiza la log-verosimilitud:</p>
 <p><span class="math display">\[
-\underset{\theta}{\operatorname{arg,max}},\ell(\theta)
+\max_{\theta} [\ell(\theta)]
 \]</span></p>
-<p>Por tanto, podemos obtener el estimador de máxima verosimilitud
-mediante</p>
-<p><span class="math display">\[
-\underset{\theta}{\operatorname{arg,max}},
-\ell(\theta).
-\]</span></p>
+<p>Por lo tanto, podemos obtener el estimador de máxima verosimilitud
+mediante la fórmula anterior.</p>
 <p>La log-verosimilitud no modifica el problema estadístico; simplemente
 proporciona una forma más conveniente de trabajar con él.</p>
 <div id="ventajas-de-la-log-verosimilitud" class="section level3">
@@ -1513,9 +1509,8 @@ proporciona una forma más conveniente de trabajar con él.</p>
 considerablemente las operaciones algebraicas:</li>
 </ul>
 <p><span class="math display">\[
-\log\left(\prod_{i=1}^n f(x_i;\theta)\right)
-=
-\sum_{i=1}^n\log f(x_i;\theta).
+\log\left(\prod_{i=1}^n f(x_i;\theta)\right) = \sum_{i=1}^n\log
+f(x_i;\theta).
 \]</span></p>
 <ul>
 <li><strong>Facilita la derivación.</strong> Para encontrar el máximo,
