@@ -1,7 +1,7 @@
 # Define las fechas iniciales y finales.
 
 inicio = "2024-01-01"
-final = "2026-07-31"
+final = "2026-11-01"
 
 # Activa la libreria 
 
