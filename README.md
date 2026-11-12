@@ -1099,6 +1099,9 @@ Para todo $t$ en un intervalo $(-h,h)$ para un $h >0$, entonces
 
 las distribuciones acumuladas son iguales.
 
+A continuación se presenta una lista de funciones generadoras, para 
+distribuciones conocidas.
+
 $$
 \begin{array}{ll}
 	\text{Distribución} & FGM \\
@@ -1202,6 +1205,7 @@ $$
 \widehat{\sigma^2} = \frac{n-1}{n}s^2
 $$
 
+
 ## Verosimilitud
 
 La estimación de máxima verosimilitud, **EMV**
@@ -1227,7 +1231,7 @@ El **estimador de máxima verosimilitud** es el valor de $\theta$
 que maximiza esta función:
 
 $$
-\max_{\theta} \{ L(\theta;x_1,\ldots,x_n) \}.
+\max_{\theta}[L(\theta;x_1,\ldots,x_n)].
 $$
 
 Sin embargo, trabajar directamente con la verosimilitud puede 
@@ -1373,6 +1377,56 @@ Recordemos la diferencia entre muestra y población. Para esto revisemos la sigu
 
 El objetivo principal de los estadísticos es aproximar los parámetros. Por otro lado,
 ¿cómo utilizamos dichas aproximaciones para tomar decisiones acertadas?
+
+### Intervalo de confianza para un parámetro.
+
+Para una parámetro $\theta$, un **intervalo** $[c_1,c_2]$, con un $(1-\alpha)100 \%$ **de confianza**, 
+cumple que
+
+$$
+P(c_1 \leq \theta \leq c_2) = 1 - \alpha
+$$
+
+Para realizar las aproximaciones de dicho intervalo, se utilizan distribuciones continuas conocidas.
+
+Si consideramos una muestra aleatoria $X_1, \ldots, X_n$, tal que la varianza $\sigma^2$ o la 
+desviación estándar poblacional $\sigma$ es conocida, el intervalos para la media $\mu$ es
+
+$$
+\left( \overline{X} - \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}}, \overline{X} + \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}} \right)
+$$
+
+donde $z_{\alpha/2}$ denota el **valor crítico** de una distribución normal estándar $Z$, 
+tal que
+
+$$
+P(Z \geq z_{\alpha/2}) = \frac{\alpha}{2} 
+$$
+
+El valor de $\alpha$, conocido como **significancia**, nos ayudará a 
+calcular el valor crítico con el siguiente código
+
+```r
+VC = qnorm(alfa/2, lower.tail = F)
+```
+
+Análogamente, si no conocemos la varianza o la desviación estándar poblacional,
+conociendo la muestra $X_1, \ldots, X_n$, podemos calcula la desviación estándar 
+muestral $s$ y el correspondiente intervalo para la media $\mu$ es
+
+$$
+\left( \overline{X} - \frac{t_{\alpha/2}(s)}{\sqrt{n}}, \overline{X} + \frac{t_{\alpha/2}(s)}{\sqrt{n}} \right)
+$$
+
+donde $t_{\alpha/2}$ denota el valor crítico correspondiente a una
+distribución $t$ de student con $n-1$ grados de libertad.
+
+Por lo que el cálculo de $t_{\alpha/2}$ se realiza con el siguiente
+código
+
+```r
+VC = qt(alfa/2, df = n - 1, lower.tail = F)
+```
 
 
 ## Pruebas de hipótesis

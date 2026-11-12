@@ -18,6 +18,7 @@ MSFT = getSymbols("MSFT",
 
 # Revisa el archivo, viendo los primeros elementos.
 
+
 head(MSFT)
 
 # Para mejor manipulación, podemos convertir los precios a un vector de precios. 

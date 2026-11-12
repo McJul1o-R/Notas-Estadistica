@@ -1349,6 +1349,8 @@ que</p>
 <p>Para todo <span class="math inline">\(t\)</span> en un intervalo
 <span class="math inline">\((-h,h)\)</span> para un <span class="math inline">\(h &gt;0\)</span>, entonces</p>
 <p>las distribuciones acumuladas son iguales.</p>
+<p>A continuación se presenta una lista de funciones generadoras, para
+distribuciones conocidas.</p>
 <p><span class="math display">\[
 \begin{array}{ll}
     \text{Distribución} &amp; FGM \\
@@ -1457,7 +1459,7 @@ L(\theta; x_1, \ldots,x_n) := \prod_{i = 1}^n f(x_i; \theta)
 <span class="math inline">\(\theta\)</span> que maximiza esta
 función:</p>
 <p><span class="math display">\[
-\max_{\theta} \{ L(\theta;x_1,\ldots,x_n) \}.
+\max_{\theta}[L(\theta;x_1,\ldots,x_n)].
 \]</span></p>
 <p>Sin embargo, trabajar directamente con la verosimilitud puede
 resultar poco conveniente debido a que esta se expresa como un producto
@@ -1575,6 +1577,48 @@ revisemos la siguiente imagen</p>
 <p>El objetivo principal de los estadísticos es aproximar los
 parámetros. Por otro lado, ¿cómo utilizamos dichas aproximaciones para
 tomar decisiones acertadas?</p>
+<div id="intervalo-de-confianza-para-un-parámetro." class="section level3">
+<h3>Intervalo de confianza para un parámetro.</h3>
+<p>Para una parámetro <span class="math inline">\(\theta\)</span>, un
+<strong>intervalo</strong> <span class="math inline">\([c_1,c_2]\)</span>, con un <span class="math inline">\((1-\alpha)100 \%\)</span> <strong>de
+confianza</strong>, cumple que</p>
+<p><span class="math display">\[
+P(c_1 \leq \theta \leq c_2) = 1 - \alpha
+\]</span></p>
+<p>Para realizar las aproximaciones de dicho intervalo, se utilizan
+distribuciones continuas conocidas.</p>
+<p>Si consideramos una muestra aleatoria <span class="math inline">\(X_1, \ldots, X_n\)</span>, tal que la varianza
+<span class="math inline">\(\sigma^2\)</span> o la desviación estándar
+poblacional <span class="math inline">\(\sigma\)</span> es conocida, el
+intervalos para la media <span class="math inline">\(\mu\)</span> es</p>
+<p><span class="math display">\[
+\left( \overline{X} - \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}},
+\overline{X} + \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}} \right)
+\]</span></p>
+<p>donde <span class="math inline">\(z_{\alpha/2}\)</span> denota el
+<strong>valor crítico</strong> de una distribución normal estándar <span class="math inline">\(Z\)</span>, tal que</p>
+<p><span class="math display">\[
+P(Z \geq z_{\alpha/2}) = \frac{\alpha}{2}
+\]</span></p>
+<p>El valor de <span class="math inline">\(\alpha\)</span>, conocido
+como <strong>significancia</strong>, nos ayudará a calcular el valor
+crítico con el siguiente código</p>
+<pre class="r"><code>VC = qnorm(alfa/2, lower.tail = F)</code></pre>
+<p>Análogamente, si no conocemos la varianza o la desviación estándar
+poblacional, conociendo la muestra <span class="math inline">\(X_1,
+\ldots, X_n\)</span>, podemos calcula la desviación estándar muestral
+<span class="math inline">\(s\)</span> y el correspondiente intervalo
+para la media <span class="math inline">\(\mu\)</span> es</p>
+<p><span class="math display">\[
+\left( \overline{X} - \frac{t_{\alpha/2}(s)}{\sqrt{n}}, \overline{X} +
+\frac{t_{\alpha/2}(s)}{\sqrt{n}} \right)
+\]</span></p>
+<p>donde <span class="math inline">\(t_{\alpha/2}\)</span> denota el
+valor crítico correspondiente a una distribución <span class="math inline">\(t\)</span> de student con <span class="math inline">\(n-1\)</span> grados de libertad.</p>
+<p>Por lo que el cálculo de <span class="math inline">\(t_{\alpha/2}\)</span> se realiza con el siguiente
+código</p>
+<pre class="r"><code>VC = qt(alfa/2, df = n - 1, lower.tail = F)</code></pre>
+</div>
 </div>
 <div id="pruebas-de-hipótesis" class="section level2">
 <h2>Pruebas de hipótesis</h2>
