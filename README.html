@@ -1626,7 +1626,9 @@ código</p>
 <p>Donde <span class="math inline">\(\chi_{\alpha/2}, \chi_{1-
 \alpha/2}\)</span> son los valores críticos correspondientes a una
 distribución ji-cuadrada con <span class="math inline">\(n-1\)</span>
-grados de libertad.</p>
+grados de libertad. El cálculo en R para los valores críticos son</p>
+<pre class="r"><code>VC1 = qchisq(alfa/2, df = n - 1, lower.tail = F)
+VC2 = qchisq(1 - alfa/2, df = n - 1, lower.tail = F)</code></pre>
 <p>Por otro lado, si queremos aproximar una proporción <span class="math inline">\(p\)</span>, recordemos que la proporción muestral
 se calcula como</p>
 <p><span class="math display">\[

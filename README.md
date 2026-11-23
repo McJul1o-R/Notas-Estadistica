@@ -1436,6 +1436,13 @@ $$
 
 Donde $\chi_{\alpha/2}, \chi_{1- \alpha/2}$ son los valores críticos 
 correspondientes a una distribución ji-cuadrada con $n-1$ grados de libertad.
+El cálculo en R para los valores críticos son
+
+```r
+VC1 = qchisq(alfa/2, df = n - 1, lower.tail = F)
+VC2 = qchisq(1 - alfa/2, df = n - 1, lower.tail = F)
+```
+
 
 Por otro lado, si queremos aproximar una proporción $p$, recordemos que la
 proporción muestral se calcula como
