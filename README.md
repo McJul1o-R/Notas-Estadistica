@@ -1520,4 +1520,8 @@ El complemento de $H_0$,
 
 usamos signos como $\not=$, $>$ o $<$
 
+Para más detalles y ejemplos, ver la presentación
+
+[Intervalos e Hipótesis](presentaciones/PresentacionIntervalosHipotesis.pdf)
+
 
