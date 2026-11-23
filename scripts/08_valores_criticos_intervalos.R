@@ -1,3 +1,5 @@
+# Correr la información del script 07.
+
 # Aproximar la varianza con 95% de confianza.
 
 alfa = 0.05

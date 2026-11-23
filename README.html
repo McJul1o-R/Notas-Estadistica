@@ -1577,8 +1577,8 @@ revisemos la siguiente imagen</p>
 <p>El objetivo principal de los estadísticos es aproximar los
 parámetros. Por otro lado, ¿cómo utilizamos dichas aproximaciones para
 tomar decisiones acertadas?</p>
-<div id="intervalo-de-confianza-para-un-parámetro." class="section level3">
-<h3>Intervalo de confianza para un parámetro.</h3>
+<div id="intervalos-de-confianza-para-un-parámetro." class="section level3">
+<h3>Intervalos de confianza para un parámetro.</h3>
 <p>Para una parámetro <span class="math inline">\(\theta\)</span>, un
 <strong>intervalo</strong> <span class="math inline">\([c_1,c_2]\)</span>, con un <span class="math inline">\((1-\alpha)100 \%\)</span> <strong>de
 confianza</strong>, cumple que</p>
@@ -1590,7 +1590,7 @@ distribuciones continuas conocidas.</p>
 <p>Si consideramos una muestra aleatoria <span class="math inline">\(X_1, \ldots, X_n\)</span>, tal que la varianza
 <span class="math inline">\(\sigma^2\)</span> o la desviación estándar
 poblacional <span class="math inline">\(\sigma\)</span> es conocida, el
-intervalos para la media <span class="math inline">\(\mu\)</span> es</p>
+intervalo para la media <span class="math inline">\(\mu\)</span> es</p>
 <p><span class="math display">\[
 \left( \overline{X} - \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}},
 \overline{X} + \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}} \right)
@@ -1618,10 +1618,96 @@ valor crítico correspondiente a una distribución <span class="math inline">\(t
 <p>Por lo que el cálculo de <span class="math inline">\(t_{\alpha/2}\)</span> se realiza con el siguiente
 código</p>
 <pre class="r"><code>VC = qt(alfa/2, df = n - 1, lower.tail = F)</code></pre>
+<p>Si queremos aproximar la varianza poblacional <span class="math inline">\(\sigma^2\)</span>, entonces el intervalo es</p>
+<p><span class="math display">\[
+\frac{(n-1)s^2}{\chi_{\alpha/2}} \leq \sigma^2 \leq
+\frac{(n-1)s^2}{\chi_{1 - \alpha/2}}
+\]</span></p>
+<p>Donde <span class="math inline">\(\chi_{\alpha/2}, \chi_{1-
+\alpha/2}\)</span> son los valores críticos correspondientes a una
+distribución ji-cuadrada con <span class="math inline">\(n-1\)</span>
+grados de libertad.</p>
+<p>Por otro lado, si queremos aproximar una proporción <span class="math inline">\(p\)</span>, recordemos que la proporción muestral
+se calcula como</p>
+<p><span class="math display">\[
+\widehat{p} =  \frac{\text{# casos favorables}}{n}
+\]</span></p>
+<p>Por lo que, el intervalo es</p>
+<p><span class="math display">\[
+\widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1 - \widehat{p})}{n}}
+\leq p \leq
+\widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1 - \widehat{p})}{n}}
+\]</span></p>
+<p>Nota que el valor crítico es el mismo de la distribución normal
+estándar.</p>
+</div>
+<div id="intervalos-de-confianza-para-dos-muestras" class="section level3">
+<h3>Intervalos de confianza para dos muestras</h3>
+<p>Consideremos dos muestras de dos poblaciones independientes.</p>
+<ul>
+<li>Si queremos aproximar la diferencia de las medias <span class="math inline">\(\mu_1 - \mu_2\)</span>, entonces el intervalo
+es</li>
+</ul>
+<p><span class="math display">\[
+\overline{X}_1 - \overline{X}_2 \pm
+z_{\alpha/2}\sqrt{\frac{\sigma^2_1}{n_1}+ \frac{\sigma^2_2}{n_2}}
+\]</span></p>
+<p>donde <span class="math inline">\(n_1, n_2\)</span> son los tamaños
+de las muestras y suponemos que conocemos las varianzas
+poblacionales.</p>
+<ul>
+<li>Si no conocemos las varianzas, pero podemos considerar que son
+iguales, entonces</li>
+</ul>
+<p><span class="math display">\[
+\overline{X}_1 - \overline{X}_2 \pm t_{\alpha/2}S_p\sqrt{\frac{1}{n_1}+
+\frac{1}{n_2}}
+\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[
+S_p = \sqrt{\frac{(n_1 - 1)s^2_1 + (n_2 - 1)s^2_2}{n_1 + n_2 - 2}}
+\]</span></p>
+<p>El valor crítico <span class="math inline">\(t\)</span>
+correspondiente tiene <span class="math inline">\(n_1 + n_2 - 2\)</span>
+grados de libertad.</p>
+<ul>
+<li>Si no conocemos las varianzas y además son diferentes, entonces</li>
+</ul>
+<p><span class="math display">\[
+\overline{X}_1 - \overline{X}_2 \pm t_{\alpha/2}\sqrt{\frac{s^2_1}{n_1}+
+\frac{s^2_2}{n_2}}
+\]</span></p>
+<p>Donde los grados de libertad aproximados son</p>
+<p><span class="math display">\[
+\frac{\left(\frac{s^2_1}{n_1}+
+\frac{s^2_2}{n_2}\right)^2}{\frac{\left(\frac{s^2_1}{n_1}\right)^2}{n_1
+- 1}+ \frac{\left(\frac{s^2_2}{n_2}\right)^2}{n_2 - 1}}
+\]</span></p>
+<ul>
+<li>Para aproximar la varianza tenemos que el intervalo es</li>
+</ul>
+<p><span class="math display">\[
+\frac{s^2_1}{s^2_2} \left(\frac{1}{F_{\alpha/2}} \right) \leq
+\frac{\sigma^2_1}{\sigma^2_2} \leq \frac{s^2_1}{s^2_2}
+\left(\frac{1}{F_{1 -\alpha/2}} \right)
+\]</span></p>
+<p>donde los grados de libertad son <span class="math inline">\(df1 =
+n_1 - 1\)</span>, <span class="math inline">\(df2 = n_2 -
+1\)</span>.</p>
 </div>
 </div>
 <div id="pruebas-de-hipótesis" class="section level2">
 <h2>Pruebas de hipótesis</h2>
+<p>Verifican un supuesto, que comparar un parámetro con un valor
+específico u otro parámetro.</p>
+<p>Existen dos hipótesis:</p>
+<p>Hipótesis nula: <span class="math inline">\(H_0\)</span></p>
+<p>La comparación con igualdad (esta es la menos probable)</p>
+<p>Se usan signos como <span class="math inline">\(=\)</span>, <span class="math inline">\(&lt;=\)</span> o <span class="math inline">\(&gt;=\)</span></p>
+<p>Hipótesis alternativa: <span class="math inline">\(H_a\)</span> o
+<span class="math inline">\(H_1\)</span></p>
+<p>El complemento de <span class="math inline">\(H_0\)</span>,</p>
+<p>usamos signos como <span class="math inline">\(\not=\)</span>, <span class="math inline">\(&gt;\)</span> o <span class="math inline">\(&lt;\)</span></p>
 </div>
 </div>
 

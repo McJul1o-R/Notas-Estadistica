@@ -1378,7 +1378,7 @@ Recordemos la diferencia entre muestra y población. Para esto revisemos la sigu
 El objetivo principal de los estadísticos es aproximar los parámetros. Por otro lado,
 ¿cómo utilizamos dichas aproximaciones para tomar decisiones acertadas?
 
-### Intervalo de confianza para un parámetro.
+### Intervalos de confianza para un parámetro.
 
 Para una parámetro $\theta$, un **intervalo** $[c_1,c_2]$, con un $(1-\alpha)100 \%$ **de confianza**, 
 cumple que
@@ -1390,7 +1390,7 @@ $$
 Para realizar las aproximaciones de dicho intervalo, se utilizan distribuciones continuas conocidas.
 
 Si consideramos una muestra aleatoria $X_1, \ldots, X_n$, tal que la varianza $\sigma^2$ o la 
-desviación estándar poblacional $\sigma$ es conocida, el intervalos para la media $\mu$ es
+desviación estándar poblacional $\sigma$ es conocida, el intervalo para la media $\mu$ es
 
 $$
 \left( \overline{X} - \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}}, \overline{X} + \frac{z_{\alpha/2}(\sigma)}{\sqrt{n}} \right)
@@ -1427,6 +1427,97 @@ código
 ```r
 VC = qt(alfa/2, df = n - 1, lower.tail = F)
 ```
+Si queremos aproximar la varianza poblacional $\sigma^2$, entonces
+el intervalo es
+
+$$
+\frac{(n-1)s^2}{\chi_{\alpha/2}} \leq \sigma^2 \leq \frac{(n-1)s^2}{\chi_{1 - \alpha/2}}
+$$
+
+Donde $\chi_{\alpha/2}, \chi_{1- \alpha/2}$ son los valores críticos 
+correspondientes a una distribución ji-cuadrada con $n-1$ grados de libertad.
+
+Por otro lado, si queremos aproximar una proporción $p$, recordemos que la
+proporción muestral se calcula como
+
+$$
+\widehat{p} =  \frac{\text{# casos favorables}}{n}
+$$
+
+Por lo que, el intervalo es
+
+$$
+\widehat{p} - z_{\alpha/2}\sqrt{\frac{\widehat{p}(1 - \widehat{p})}{n}} \leq p \leq 
+\widehat{p} + z_{\alpha/2}\sqrt{\frac{\widehat{p}(1 - \widehat{p})}{n}}
+$$
+
+Nota que el valor crítico es el mismo de la distribución normal estándar.
+
+### Intervalos de confianza para dos muestras
+
+Consideremos dos muestras de dos poblaciones independientes.
+
+- Si queremos aproximar la diferencia de las medias $\mu_1 - \mu_2$, entonces
+el intervalo es
+
+$$
+\overline{X}_1 - \overline{X}_2 \pm z_{\alpha/2}\sqrt{\frac{\sigma^2_1}{n_1}+ \frac{\sigma^2_2}{n_2}}
+$$
+
+donde $n_1, n_2$ son los tamaños de las muestras y suponemos que conocemos las varianzas poblacionales. 
+
+- Si no conocemos las varianzas, pero podemos considerar que son iguales, entonces
+
+$$
+\overline{X}_1 - \overline{X}_2 \pm t_{\alpha/2}S_p\sqrt{\frac{1}{n_1}+ \frac{1}{n_2}}
+$$
+
+donde 
+
+$$
+S_p = \sqrt{\frac{(n_1 - 1)s^2_1 + (n_2 - 1)s^2_2}{n_1 + n_2 - 2}}
+$$
+
+El valor crítico $t$ correspondiente tiene $n_1 + n_2 - 2$ grados de libertad.
+
+- Si no conocemos las varianzas y además son diferentes, entonces
+
+$$
+\overline{X}_1 - \overline{X}_2 \pm t_{\alpha/2}\sqrt{\frac{s^2_1}{n_1}+ \frac{s^2_2}{n_2}}
+$$
+
+Donde los grados de libertad aproximados son
+
+$$
+\frac{\left(\frac{s^2_1}{n_1}+ \frac{s^2_2}{n_2}\right)^2}{\frac{\left(\frac{s^2_1}{n_1}\right)^2}{n_1 - 1}+ \frac{\left(\frac{s^2_2}{n_2}\right)^2}{n_2 - 1}}
+$$
+
+- Para aproximar la varianza tenemos que el intervalo es
+
+$$
+\frac{s^2_1}{s^2_2} \left(\frac{1}{F_{\alpha/2}} \right) \leq \frac{\sigma^2_1}{\sigma^2_2} \leq \frac{s^2_1}{s^2_2} \left(\frac{1}{F_{1 -\alpha/2}} \right)
+$$
+
+donde los grados de libertad son $df1 = n_1 - 1$, $df2 = n_2 - 1$.
 
 
 ## Pruebas de hipótesis
+
+Verifican un supuesto, que comparar un parámetro con un valor
+específico u otro parámetro.
+
+Existen dos hipótesis:
+
+Hipótesis nula: $H_0$ 
+
+La comparación con igualdad (esta es la menos probable)
+
+Se usan signos como $=$, $<=$ o $>=$
+
+Hipótesis alternativa: $H_a$ o $H_1$ 
+
+El complemento de $H_0$, 
+
+usamos signos como $\not=$, $>$ o $<$
+
+
