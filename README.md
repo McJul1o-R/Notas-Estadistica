@@ -1508,6 +1508,13 @@ $$
 donde los grados de libertad son $df1 = n_1 - 1$, $df2 = n_2 - 1$.
 
 
+Para mas ejemplos, revisar los siguientes scripts
+
+[Muestras aleatorias](scripts/07_muestras_aleatorias.R)
+
+
+[Valores críticos e intervalos](scripts/08_valores_criticos_intervalos.R)
+
 ## Pruebas de hipótesis
 
 Verifican un supuesto, que comparar un parámetro con un valor
@@ -1530,5 +1537,6 @@ usamos signos como $\not=$, $>$ o $<$
 Para más detalles y ejemplos, ver la presentación
 
 [Intervalos e Hipótesis](presentaciones/PresentacionIntervalosHipotesis.pdf)
+
 
 
